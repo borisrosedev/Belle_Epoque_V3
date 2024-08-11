@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belle Epoque | Login </title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <header class="app__header flex-between fixed-top">
+        <a class="custom-anchor" href="../index.html">Belle Epoque</a>
+        <nav>
+            <ul>
+                <li>
+                    <a  class="custom-anchor"  href="../index.html">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="app__main login__main">
+
+        <section>
+            <header>
+                 <h1>Connexion</h1>
+            </header>
+            <form class="form">
+                <section class="form__fields">
+                    <article class="form__field">
+                        <section class="form__field-icon-label-input">
+                            <span class="material-symbols-outlined" aria-label="icône de l'email">
+                                mail
+                            </span>
+                            <section class="form__label-and-input">
+                                <label for="email"></label>
+                                <input 
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    pattern="^[a-z0-9.]{2,40}[@]{1}[a-z0-9]{2,7}[.]{1}[a-z]{2,5}$"
+                                    required
+                                    aria-required="true"
+                                />
+                            </section>
+                        </section>
+                        <section class="form__field-error">
+
+
+                        </section>
+                    </article>
+                    <article class="form__field">
+                        <section class="form__field-icon-label-input">
+                            <span class="material-symbols-outlined" aria-label="icône du mot de passe">
+                                lock
+                            </span>
+                            <section class="form__label-and-input">
+                                <label for="password"></label>
+                                <input 
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    pattern="^[a-zA-Z0-9ïûàèé\-_!?]{12,20}$"
+                                    required
+                                    aria-required="true"
+                                />
+                            </section>
+                        </section>
+                        <section class="form__field-error"></section>
+                    </article>
+                </section>
+                <section class="form__buttons">
+                    <button 
+                        id="submit-button"  
+                        type="submit"
+      
+                    >
+                        Valider
+                    </button>
+                    <button  
+                        id="reset-button" 
+                        type="reset"
+           
+                    >
+                        Réinitialiser
+                    </button>
+                </section>
+                <section class="form__errors"></section>
+            </form>
+        </section>
+ 
+
+    </main>
+</body>
+</html>

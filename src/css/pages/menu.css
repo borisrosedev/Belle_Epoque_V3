@@ -1,0 +1,103 @@
+
+/*----------------------------MENU PAGE-------------------------------*/
+
+.menu__main {
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: color;
+    flex-direction: column;
+    padding-inline: 10px;
+    opacity: 0;
+    height: 100vh;
+    overflow-y: scroll;
+  
+    animation: show 1000ms ease-in-out forwards;
+  
+    h2 {
+      color: #fff;
+      font-family: "Parisienne", cursive;
+    }
+  
+    .menu__section {
+      margin-block: 10px;
+      display: flex;
+      flex-direction: column;
+      & > section {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  
+    .menu-mains__list {
+    
+      /*animation: show-right 1s ease-in-out 1.5s forwards;*/
+    }
+  
+    .menu-desserts__list {
+  
+      /*animation: show-right 1s ease-in-out 2.5s forwards;*/
+    }
+  
+  
+    article {
+      width: 300px;
+      border: solid white 2px;
+      height: 350px;
+      background-color: white;
+      margin-right: 10px;
+      margin-block: 10px;
+      padding: 5px;
+      figure {
+        height: 70%;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+  
+      figure > img {
+        opacity: 0.5;
+        transition: opacity ease-in-out 300ms;
+        &:hover {
+          opacity: 1;
+        }
+      }
+  
+      figure + section {
+        padding: 10px;
+        h3 {
+          font-family: "Parisienne", cursive;
+        }
+  
+        section {
+          margin-block: 5px;
+           & > span:first-of-type {
+              font-size: 14px;
+           }
+  
+           button {
+            border: none;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            transition: all ease-in-out 300ms;
+            &:hover {
+              background-color: lightblue;
+              border-radius: 50%;
+              cursor: pointer;
+            }
+           }
+          display: flex;
+          align-items: center;
+          justify-content: space-between
+          ;
+        }
+      }
+  
+    
+    }
+  
+  
+  }
+  
+  

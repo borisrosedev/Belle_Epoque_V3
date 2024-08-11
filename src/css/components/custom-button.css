@@ -1,0 +1,12 @@
+.custom-button {
+    padding-block: 10px;
+    border-radius: 5px;
+    background-color: rgba(100, 149, 237, 0.5);
+    color: #fff;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(100, 149, 237, 1);
+    }
+  
+}

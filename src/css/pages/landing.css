@@ -1,12 +1,11 @@
 .landing__main {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: color;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0.5);
+	background-blend-mode: color;
 
-    button {
-        margin-block: 20px; 
-    }
-  }
-  
+	button {
+		margin-block: 20px;
+	}
+}

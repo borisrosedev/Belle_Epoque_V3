@@ -1,6 +1,5 @@
-function menuItem (data) {
-
-    return `
+function menuItem(data) {
+	return `
 
              <article id="${data.id}">
                     <figure tabindex="0" id="figure-${data.id}">
@@ -28,6 +27,5 @@ function menuItem (data) {
     
     `
 }
-
 
 export default menuItem

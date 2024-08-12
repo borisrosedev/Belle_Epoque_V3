@@ -1,5 +1,5 @@
-function notFoundView () {
-    return `
+function notFoundView() {
+	return `
     
         <main class="app__main not-found__main"> 
 

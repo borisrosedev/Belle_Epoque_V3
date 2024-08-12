@@ -1,7 +1,7 @@
-console.log('app-header.js file has been read')
+console.log("app-header.js file has been read")
 
-function appHeader () {
-    return `
+function appHeader() {
+	return `
     
      <header class="app__header landing__header flex-between fixed-top">
             <a class="custom-anchor"href="">Belle Epoque</a>
@@ -21,4 +21,4 @@ function appHeader () {
     `
 }
 
-export default appHeader 
+export default appHeader

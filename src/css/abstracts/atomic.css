@@ -1,14 +1,14 @@
 /*oocss*/
 
 .fixed-top {
-    position: fixed;
-      right: 0;
-      left: 0;
-      z-index: 20;
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 20;
 }
-  
+
 .flex-between {
-display: flex;
-justify-content: space-between;
-align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

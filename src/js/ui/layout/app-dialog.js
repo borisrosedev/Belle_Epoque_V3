@@ -1,5 +1,5 @@
-function appDialog () {
-    return `
+function appDialog() {
+	return `
         <dialog id="app-dialog">
             <header>
                 <button id="app-dialog-close-button">

@@ -1,13 +1,12 @@
 .button-like-anchor {
-    padding-block: 10px;
-    padding-inline: 5px;
-    border-radius: 5px;
-    background-color: rgba(100, 149, 237, 0.5);
-    color: #fff;
-    border: none;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(100, 149, 237, 1);
-    }
-  }
-  
+	padding-block: 10px;
+	padding-inline: 5px;
+	border-radius: 5px;
+	background-color: rgba(100, 149, 237, 0.5);
+	color: #fff;
+	border: none;
+	&:hover {
+		cursor: pointer;
+		background-color: rgba(100, 149, 237, 1);
+	}
+}

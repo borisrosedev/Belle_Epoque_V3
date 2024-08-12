@@ -1,5 +1,5 @@
-function button (data) {
-    return `
+function button(data) {
+	return `
         <button
             type="${data.type}"
             class="${data.classNames}"

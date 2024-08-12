@@ -1,0 +1,15 @@
+{
+	"name": "belle_epoque_v3",
+	"version": "1.0.0",
+	"description": "Application de restauration gastronomique",
+	"main": "main.js",
+	"scripts": {
+		"format:write": "npx prettier . --write",
+		"format:check": "npx prettier . --check"
+	},
+	"author": "Boris Rose",
+	"license": "ISC",
+	"devDependencies": {
+		"prettier": "^3.3.3"
+	}
+}

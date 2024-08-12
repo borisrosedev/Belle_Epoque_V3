@@ -1,87 +1,78 @@
-
 #app-dialog {
-  
-    position: absolute;
-    display: flex;
-    top: 0;
-    bottom: 0;
-    display: none;
-    height: 500px;
-    width: 500px;
-    opacity: 0;
-    animation: show-right 1000ms ease-in-out forwards;
-    flex-direction: column;
+	position: absolute;
+	display: flex;
+	top: 0;
+	bottom: 0;
+	display: none;
+	height: 500px;
+	width: 500px;
+	opacity: 0;
+	animation: show-right 1000ms ease-in-out forwards;
+	flex-direction: column;
 
-    & > header {
-        position: relative;
+	& > header {
+		position: relative;
 
-        button {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            border: none;
-            display: flex;
-            background-color: #fff;
-                cursor: pointer;
-        }
-    }
-  
-    article {
-        height: 100%;
-        border: solid white 2px;
-        width: 100%;
-        background-color: white;
-        margin-right: 10px;
-        margin-block: 10px;
-        padding: 5px;
-        figure {
-          height: 70%;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-    
-  
+		button {
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			border: none;
+			display: flex;
+			background-color: #fff;
+			cursor: pointer;
+		}
+	}
 
-        figure + section {
-          padding: 10px;
-          h3 {
-            font-family: "Parisienne", cursive;
-          }
+	article {
+		height: 100%;
+		border: solid white 2px;
+		width: 100%;
+		background-color: white;
+		margin-right: 10px;
+		margin-block: 10px;
+		padding: 5px;
+		figure {
+			height: 70%;
+			border-radius: 10px;
+			overflow: hidden;
+		}
 
-          p {
-            margin-block: 5px;
-          }
-    
-          section {
-            margin-block: 5px;
-             & > span:first-of-type {
-                font-size: 14px;
-             }
-    
-             button {
-              border: none;
-              background-color: white;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              height: 40px;
-              width: 40px;
-              transition: all ease-in-out 300ms;
-              &:hover {
-                background-color: lightblue;
-                border-radius: 50%;
-                cursor: pointer;
-              }
-             }
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-            ;
-          }
-        }
-    
-      
-    }
-    
+		figure + section {
+			padding: 10px;
+			h3 {
+				font-family: "Parisienne", cursive;
+			}
 
+			p {
+				margin-block: 5px;
+			}
+
+			section {
+				margin-block: 5px;
+				& > span:first-of-type {
+					font-size: 14px;
+				}
+
+				button {
+					border: none;
+					background-color: white;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 40px;
+					width: 40px;
+					transition: all ease-in-out 300ms;
+					&:hover {
+						background-color: lightblue;
+						border-radius: 50%;
+						cursor: pointer;
+					}
+				}
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+	}
 }

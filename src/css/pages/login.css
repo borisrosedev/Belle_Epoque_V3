@@ -1,34 +1,27 @@
-
 /*-------------------------------LOGIN PAGE------------------------------*/
 
 .login__main {
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: color;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-  
-  
-  
-    & > section {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      animation: show-up 1s ease-in-out forwards;
-      & > header {
-        h1 {
-      
-          font-family: "Parisienne", cursive;
-        }
-        color: #fff;
-        margin-block: 10px;
-      }
-    }
-  
-  
-  }
-  
+	background-color: rgba(0, 0, 0, 0.5);
+	background-blend-mode: color;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+
+	& > section {
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 10px;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		opacity: 0;
+		animation: show-up 1s ease-in-out forwards;
+		& > header {
+			h1 {
+				font-family: "Parisienne", cursive;
+			}
+			color: #fff;
+			margin-block: 10px;
+		}
+	}
+}

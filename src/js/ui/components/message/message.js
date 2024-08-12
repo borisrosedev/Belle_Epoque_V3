@@ -1,5 +1,5 @@
-function message (data) {
-    return `
+function message(data) {
+	return `
         <section class="message">
             <section>
                 <figure>

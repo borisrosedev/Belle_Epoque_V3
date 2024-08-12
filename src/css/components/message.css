@@ -1,29 +1,27 @@
 .message {
-    background-color: #fff;
-    width: 400px;
-    height: 150px;
-    display: flex;
-    border-radius: 10px;
-    overflow: hidden;
+	background-color: #fff;
+	width: 400px;
+	height: 150px;
+	display: flex;
+	border-radius: 10px;
+	overflow: hidden;
 
-    & > section:first-of-type {
-        height: 100%;
-        width:30%;
+	& > section:first-of-type {
+		height: 100%;
+		width: 30%;
 
-        figure {
-    
-            height: 100%;
-            width: 100%;
-            img {
-                object-position:80%;
-            }
-        }
-    }
+		figure {
+			height: 100%;
+			width: 100%;
+			img {
+				object-position: 80%;
+			}
+		}
+	}
 
-    & > section:last-of-type {
-      
-        width: 70%;
-        padding: 10px;
-        font-family: "Poppins", sans-serif;
-    }
+	& > section:last-of-type {
+		width: 70%;
+		padding: 10px;
+		font-family: "Poppins", sans-serif;
+	}
 }

@@ -1,6 +1,5 @@
-function field (data) {
-
-    return `
+function field(data) {
+	return `
     
         <article class="form__field">
                         <section class="form__field-icon-label-input">

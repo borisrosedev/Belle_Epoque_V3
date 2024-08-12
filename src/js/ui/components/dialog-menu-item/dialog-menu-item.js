@@ -1,6 +1,5 @@
-function dialogMenuItem (data) {
-
-    return `
+function dialogMenuItem(data) {
+	return `
 
              <article id="dialog-menu-item">
                     <figure>
@@ -29,6 +28,5 @@ function dialogMenuItem (data) {
     
     `
 }
-
 
 export default dialogMenuItem

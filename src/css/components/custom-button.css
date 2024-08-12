@@ -1,12 +1,11 @@
 .custom-button {
-    padding-block: 10px;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(100, 149, 237, 1);
-    }
-  
+	padding-block: 10px;
+	border-radius: 5px;
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	&:hover {
+		cursor: pointer;
+		background-color: rgba(100, 149, 237, 1);
+	}
 }

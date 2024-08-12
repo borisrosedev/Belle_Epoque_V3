@@ -1,12 +1,10 @@
 .app__main {
-    min-height: 100vh;
-    padding-top: 8vh;
-    background-image: url("../../../assets/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  
-    display: flex;
-  
-  }
-  
+	min-height: 100vh;
+	padding-top: 8vh;
+	background-image: url("../../../assets/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	display: flex;
+}

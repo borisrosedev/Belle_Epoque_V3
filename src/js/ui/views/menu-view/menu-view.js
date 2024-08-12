@@ -1,6 +1,5 @@
-function menuView () {
-
-    return `
+function menuView() {
+	return `
     
         <main class="app__main menu__main">
             <section class="menu__section menu___starters">
@@ -31,8 +30,6 @@ function menuView () {
     
     
     `
-
 }
-
 
 export default menuView

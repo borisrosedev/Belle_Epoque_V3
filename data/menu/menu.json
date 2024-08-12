@@ -1,100 +1,98 @@
 {
-    "starters": [
-        {
-            "id": 8,
-            "name": "Foie gras",
-            "price": 15,
-            "ratings": 4,
-            "category": "starters",
-            "description": "Foie gras de normandie, issue d'une agriculture respectueuse de l'environnement",
-            "url":"https://cdn.pixabay.com/photo/2020/03/31/15/28/ritz-london-starter-4988164_960_720.jpg"
-        }, 
-        {
-            "id": 9,
-            "ratings": 3.5,
-            "name": "Salade et mozzarella",
-            "description": "Rien de tel pour commencer tranquilement à manger",
-            "price": 10,
-            "category": "starters",
-            "url": "https://cdn.pixabay.com/photo/2020/06/03/08/53/mozzarella-5254110_1280.jpg"
-        },
-        {
-            "id": 10,
-            "ratings": 4,
-            "name": "Salade de maqueraux",
-            "description": "Nos maqueraux proviennent d'agriculteurs locaux",
-            "price": 15,
-            "category": "starters",
-            "url": "https://cdn.pixabay.com/photo/2014/06/05/23/42/mackerel-363073_1280.jpg"
-        }
-    ],
-    "mains": [
-        {
-            "id": 1,
-            "name":"Tofu de Mamie Wang",
-            "description":"Tofu préparé avec amour par Mamie Wang, les légumes sont frais",
-            "ratings": 5,
-            "price": 20,
-            "category":"mains",
-            "url":"https://cdn.pixabay.com/photo/2021/01/16/09/05/meal-5921491_1280.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Ecrevisses bretones",
-            "description":"Pêchées le matin, elles sauront vous ravir",
-            "ratings": 5,
-            "price": 40,
-            "category": "mains",
-            "url":"https://cdn.pixabay.com/photo/2019/06/11/04/00/seafood-4265995_1280.jpg"
-        }
-    ],
-    "desserts": [
-        {
-            "id":3,
-            "name":"Tarte à la fraise",
-            "description":"Les fraises proviennent d'agriculteurs locaux, magnifiques en bouche",
-            "ratings": 4,
-            "price": 15,
-            "category":"desserts",
-            "url":"https://cdn.pixabay.com/photo/2023/08/26/09/04/strawberry-8214486_1280.jpg"
-        }, 
-        {
-            "id": 4,
-            "name": "Tart à la cerise",
-            "description": "Les cerises sont celles de notre cher Chef, il adore vous donner ce que lui-même savoure",
-            "ratings": 5,
-            "price": 15,
-            "category": "desserts",
-            "url": "https://cdn.pixabay.com/photo/2023/07/27/07/42/cherry-cake-8152717_1280.jpg"
-        },
-        {
-            "id": 5,
-            "name": "Glace à la vanille et à la banane",
-            "description": "La glace préférée des gourmands, la vanille est faite maison",
-            "ratings": 4.5,
-            "price": 10,
-            "category":"desserts",
-            "url": "https://cdn.pixabay.com/photo/2014/03/07/11/00/bananas-282313_1280.jpg"
-        },
-        {
-            "id": 6,
-            "name": "Glace au chocolat",
-            "description": "Cette glace est préparée avec les chocolats de Monsieur Bertrand, médaillé pour le meilleur gâteau au chocolat de la région",
-            "ratings": 5,
-            "price": 12,
-            "category": "desserts",
-            "url": "https://cdn.pixabay.com/photo/2020/02/14/14/19/ice-cream-4848501_1280.jpg"
-        },
-        {
-            "id": 7,
-            "name": "Crême glacée",
-            "description": "Elle est faite par notre Chef depuis plus de 15 ans, certains disent qu'elle est la meilleure de la région",
-            "ratings": 5,
-            "price": 12,
-            "category": "desserts",
-            "url": "https://cdn.pixabay.com/photo/2014/12/11/03/18/ice-cream-563808_1280.jpg"
-        }
-    ]
-
-
+	"starters": [
+		{
+			"id": 8,
+			"name": "Foie gras",
+			"price": 15,
+			"ratings": 4,
+			"category": "starters",
+			"description": "Foie gras de normandie, issue d'une agriculture respectueuse de l'environnement",
+			"url": "https://cdn.pixabay.com/photo/2020/03/31/15/28/ritz-london-starter-4988164_960_720.jpg"
+		},
+		{
+			"id": 9,
+			"ratings": 3.5,
+			"name": "Salade et mozzarella",
+			"description": "Rien de tel pour commencer tranquilement à manger",
+			"price": 10,
+			"category": "starters",
+			"url": "https://cdn.pixabay.com/photo/2020/06/03/08/53/mozzarella-5254110_1280.jpg"
+		},
+		{
+			"id": 10,
+			"ratings": 4,
+			"name": "Salade de maqueraux",
+			"description": "Nos maqueraux proviennent d'agriculteurs locaux",
+			"price": 15,
+			"category": "starters",
+			"url": "https://cdn.pixabay.com/photo/2014/06/05/23/42/mackerel-363073_1280.jpg"
+		}
+	],
+	"mains": [
+		{
+			"id": 1,
+			"name": "Tofu de Mamie Wang",
+			"description": "Tofu préparé avec amour par Mamie Wang, les légumes sont frais",
+			"ratings": 5,
+			"price": 20,
+			"category": "mains",
+			"url": "https://cdn.pixabay.com/photo/2021/01/16/09/05/meal-5921491_1280.jpg"
+		},
+		{
+			"id": 2,
+			"name": "Ecrevisses bretones",
+			"description": "Pêchées le matin, elles sauront vous ravir",
+			"ratings": 5,
+			"price": 40,
+			"category": "mains",
+			"url": "https://cdn.pixabay.com/photo/2019/06/11/04/00/seafood-4265995_1280.jpg"
+		}
+	],
+	"desserts": [
+		{
+			"id": 3,
+			"name": "Tarte à la fraise",
+			"description": "Les fraises proviennent d'agriculteurs locaux, magnifiques en bouche",
+			"ratings": 4,
+			"price": 15,
+			"category": "desserts",
+			"url": "https://cdn.pixabay.com/photo/2023/08/26/09/04/strawberry-8214486_1280.jpg"
+		},
+		{
+			"id": 4,
+			"name": "Tart à la cerise",
+			"description": "Les cerises sont celles de notre cher Chef, il adore vous donner ce que lui-même savoure",
+			"ratings": 5,
+			"price": 15,
+			"category": "desserts",
+			"url": "https://cdn.pixabay.com/photo/2023/07/27/07/42/cherry-cake-8152717_1280.jpg"
+		},
+		{
+			"id": 5,
+			"name": "Glace à la vanille et à la banane",
+			"description": "La glace préférée des gourmands, la vanille est faite maison",
+			"ratings": 4.5,
+			"price": 10,
+			"category": "desserts",
+			"url": "https://cdn.pixabay.com/photo/2014/03/07/11/00/bananas-282313_1280.jpg"
+		},
+		{
+			"id": 6,
+			"name": "Glace au chocolat",
+			"description": "Cette glace est préparée avec les chocolats de Monsieur Bertrand, médaillé pour le meilleur gâteau au chocolat de la région",
+			"ratings": 5,
+			"price": 12,
+			"category": "desserts",
+			"url": "https://cdn.pixabay.com/photo/2020/02/14/14/19/ice-cream-4848501_1280.jpg"
+		},
+		{
+			"id": 7,
+			"name": "Crême glacée",
+			"description": "Elle est faite par notre Chef depuis plus de 15 ans, certains disent qu'elle est la meilleure de la région",
+			"ratings": 5,
+			"price": 12,
+			"category": "desserts",
+			"url": "https://cdn.pixabay.com/photo/2014/12/11/03/18/ice-cream-563808_1280.jpg"
+		}
+	]
 }

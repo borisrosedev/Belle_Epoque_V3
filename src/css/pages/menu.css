@@ -52,11 +52,14 @@
         overflow: hidden;
       }
   
+
+
       figure > img {
         opacity: 0.5;
         transition: opacity ease-in-out 300ms;
         &:hover {
           opacity: 1;
+          cursor: pointer;
         }
       }
   

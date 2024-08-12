@@ -5,9 +5,16 @@
   ul, body, p, h1, h2, h3 {
     margin: 0;
   }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+   
+  }
   
   img {
     object-fit: cover;
+
     width: 100%;
     height: 100%;
   

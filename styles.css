@@ -5,10 +5,12 @@
 @import url("./src/css/abstracts/atomic.css");
 
 @import url("./src/css/layout/app-header.css");
+@import url("./src/css/layout/app-dialog.css");
 @import url("./src/css/layout/app-main.css");
 
 
-@import url("./src/css/components/custome-anchor.css");
+@import url("./src/css/components/message.css");
+@import url("./src/css/components/custom-anchor.css");
 @import url("./src/css/components/custom-button.css");
 @import url("./src/css/components/button-like-anchor.css");
 @import url("./src/css/components/form.css");
@@ -18,5 +20,5 @@
 @import url("./src/css/pages/landing.css");
 @import url("./src/css/pages/menu.css");
 @import url("./src/css/pages/login.css");
-
+@import url("./src/css/pages/not-found.css");
 

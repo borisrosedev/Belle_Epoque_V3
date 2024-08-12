@@ -1,0 +1,14 @@
+.not-found__main {
+    background-color: rgba(0, 0, 0, 0.8);
+    background-blend-mode: color;
+    align-items: center;
+    justify-content: center;
+    section {
+        h1 {
+            color: var(--error-color);
+            font-size: 40px;
+            opacity: 0;
+            animation: show-down 1000ms ease-in-out forwards;
+        }
+    }
+}

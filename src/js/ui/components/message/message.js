@@ -1,6 +1,6 @@
 function message(data) {
 	return `
-        <section class="message">
+        <section class="message ${data.classNames ? data.classNames : ""}"  id="${data.id ?? ""}">
             <section>
                 <figure>
                     <img src="./assets/avatar-woman.jpg" alt="avatar de femme">
@@ -8,8 +8,8 @@ function message(data) {
             </section>
             <section>
                 <p>${data.content}</p>
-            <section>
-        <section>
+            </section>
+        </section>
     `
 }
 

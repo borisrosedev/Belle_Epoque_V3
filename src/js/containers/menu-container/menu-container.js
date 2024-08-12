@@ -1,3 +1,4 @@
+import NotificationService from "../../services/notification-service/notification.service.js"
 import dialogMenuItem from "../../ui/components/dialog-menu-item/dialog-menu-item.js"
 import menuItem from "../../ui/components/menu-item/menu-item.js"
 
@@ -8,6 +9,11 @@ class MenuContainer {
 		// une promise
 		// si il y a une promosse c'est qu'une ressource
 		//n'arrive pas instantanément dans cette histoire
+		this.notificationService = new NotificationService()
+		this.notificationService.setNotification({
+			content: "Vous êtes sur la page du Menu"
+		})
+
 		this.onInit().then(() => {
 			console.log("this.menu", this.menu)
 

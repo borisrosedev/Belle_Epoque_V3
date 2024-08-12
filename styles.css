@@ -5,6 +5,7 @@
 @import url("./src/css/abstracts/atomic.css");
 
 @import url("./src/css/layout/app-header.css");
+@import url("./src/css/layout/app-notification.css");
 @import url("./src/css/layout/app-dialog.css");
 @import url("./src/css/layout/app-main.css");
 

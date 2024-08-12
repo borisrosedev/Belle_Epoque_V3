@@ -2,6 +2,7 @@ import LandingContainer from "./src/js/containers/landing-container/landing-cont
 import MenuContainer from "./src/js/containers/menu-container/menu-container.js"
 import appDialog from "./src/js/ui/layout/app-dialog.js"
 import appHeader from "./src/js/ui/layout/app-header.js"
+import appNotification from "./src/js/ui/layout/app-notification.js"
 import landingView from "./src/js/ui/views/landing-view/landing-view.js"
 import logView from "./src/js/ui/views/log-view/log-view.js"
 import menuView from "./src/js/ui/views/menu-view/menu-view.js"
@@ -9,17 +10,21 @@ import notFoundView from "./src/js/ui/views/not-found-view/not-found-view.js"
 
 const root = document.getElementById("root")
 
+function setPageLayout() {
+	return appHeader() + appNotification()
+}
+
 function renderViewDependingOnTheHash(h) {
 	switch (h) {
 		case "":
-			root.innerHTML = appHeader() + landingView()
+			root.innerHTML = setPageLayout() + landingView()
 			new LandingContainer()
 			break
 		case "#login":
-			root.innerHTML = appHeader() + logView()
+			root.innerHTML = setPageLayout() + logView()
 			break
 		case "#menu":
-			root.innerHTML = appHeader() + menuView() + appDialog()
+			root.innerHTML = setPageLayout() + menuView() + appDialog()
 			new MenuContainer()
 			break
 		default:

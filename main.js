@@ -1,4 +1,5 @@
 import LandingContainer from "./src/js/containers/landing-container/landing-container.js"
+import LogContainer from "./src/js/containers/log-container/log-container.js"
 import MenuContainer from "./src/js/containers/menu-container/menu-container.js"
 import appDialog from "./src/js/ui/layout/app-dialog.js"
 import appHeader from "./src/js/ui/layout/app-header.js"
@@ -11,6 +12,7 @@ import notFoundView from "./src/js/ui/views/not-found-view/not-found-view.js"
 const root = document.getElementById("root")
 
 function setPageLayout() {
+	root.innerHTML = ""
 	return appHeader() + appNotification()
 }
 
@@ -21,7 +23,12 @@ function renderViewDependingOnTheHash(h) {
 			new LandingContainer()
 			break
 		case "#login":
-			root.innerHTML = setPageLayout() + logView()
+			root.innerHTML = setPageLayout() + logView(true)
+			new LogContainer(true)
+			break
+		case "#register":
+			root.innerHTML = setPageLayout() + logView(false)
+			new LogContainer(false)
 			break
 		case "#menu":
 			root.innerHTML = setPageLayout() + menuView() + appDialog()

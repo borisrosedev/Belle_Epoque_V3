@@ -4,6 +4,12 @@
 	flex-direction: column;
 	width: 400px;
 }
+.form__errors {
+	min-height: 30px;
+	margin-block: 10px;
+	color: var(--error-color);
+	font-family: "Poppins", sans-serif;
+}
 
 .form__buttons {
 	margin-block: 5px;
@@ -41,6 +47,8 @@
 	.form__field-error {
 		min-height: 30px;
 		padding-block: 2px;
+		color: var(--error-color);
+		font-family: "Poppins", sans-serif;
 	}
 
 	.form__field-icon-label-input {

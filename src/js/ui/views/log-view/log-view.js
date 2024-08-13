@@ -1,6 +1,6 @@
 import form from "../../components/form/form.js"
 
-function logView() {
+function logView(isLoggingIn) {
 	const formData = {
 		id: "log-form",
 		fields: [
@@ -38,6 +38,39 @@ function logView() {
 		]
 	}
 
+	if (isLoggingIn == false) {
+		const passwordData = formData.fields.pop()
+		const emailData = formData.fields.pop()
+		formData.fields.push(
+			{
+				arialLabel: "icône du prénom",
+				spanTextContent: "person",
+				id: "firstname",
+				type: "text",
+				placeholder: "Entrez votre prénom",
+				pattern: "[a-zéüïèà]{2,30}"
+			},
+			{
+				arialLabel: "icône du nom",
+				spanTextContent: "person",
+				id: "lastname",
+				type: "text",
+				placeholder: "Entrez votre nom",
+				pattern: "[a-zéüïèà]{2,30}"
+			},
+			emailData,
+			passwordData,
+			{
+				placeholder: "Confirmez votre mot de passe",
+				ariaLabel: "icône du mot de passe",
+				spanTextContent: "lock",
+				type: "password",
+				id: "confirmed-password",
+				pattern: "[a-zA-Z0-9ï!?ûéàè]{12,20}"
+			}
+		)
+	}
+
 	return `
     
         
@@ -45,9 +78,16 @@ function logView() {
 
         <section>
             <header>
-                 <h1>Connexion</h1>
+                 <h1>${isLoggingIn ? "Connexion" : "Inscription"}</h1>
             </header>
             ${form(formData)}
+			<section>
+				${
+					isLoggingIn
+						? `<small>Pas encore inscrit(e) ? Cliquez <a href="#register">ici</a></small>`
+						: `<small>Déjà inscrit(e) ? Cliquez <a href="#login">ici</a></small>`
+				}
+			</section>
         </section>
  
 

@@ -23,5 +23,17 @@
 			color: #fff;
 			margin-block: 10px;
 		}
+
+		& > section {
+			margin-top: 10px;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			color: #fff;
+			font-family: "Poppins", sans-serif;
+
+			a {
+				color: var(--secondary-color);
+			}
+		}
 	}
 }

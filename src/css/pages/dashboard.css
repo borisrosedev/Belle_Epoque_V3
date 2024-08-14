@@ -3,10 +3,27 @@
 
 	.dashboard__welcome {
 		display: flex;
-		margin-block: 10px;
+		margin: 10px;
 		.message {
 			height: 90px;
 			width: 300px;
+			ul {
+				li {
+					margin-block: 5px;
+					button {
+						height: 100%;
+						width: 100%;
+						border: none;
+						padding: 5px;
+						transition: all ease-in-out 300ms;
+						background-color: var(--secondary-color);
+						&:hover {
+							cursor: pointer;
+							color: #fff;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -21,6 +38,24 @@
 		flex-direction: column;
 		.cart-item {
 			margin-block: 10px;
+			height: 90px;
+			figure {
+				width: 30%;
+			}
+			figure + section {
+				width: 70%;
+				& > section:first-of-type {
+					width: 50%;
+				}
+
+				& > section:last-of-type {
+					width: 50%;
+				}
+			}
+		}
+
+		& > p {
+			color: #fff;
 		}
 	}
 }

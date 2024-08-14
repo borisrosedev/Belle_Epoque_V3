@@ -23,17 +23,23 @@ function setPageLayout() {
 	return appHeader() + appNotification() + appCart() + appProfileMenu()
 }
 
+window.onNavigate = function (h) {
+	renderViewDependingOnTheHash(h)
+}
+
 function renderViewDependingOnTheHash(h) {
+	window.history.pushState({}, "", window.location.pathname + h)
+
 	switch (h) {
 		case "":
 			root.innerHTML = setPageLayout() + landingView()
 			new HeaderContainer()
-			new LandingContainer()
+			new LandingContainer(window.onNavigate)
 			break
 		case "#login":
 			root.innerHTML = setPageLayout() + logView(true)
 			new HeaderContainer()
-			new LogContainer(true)
+			new LogContainer(window.onNavigate)
 			break
 		case "#register":
 			root.innerHTML = setPageLayout() + logView(false)

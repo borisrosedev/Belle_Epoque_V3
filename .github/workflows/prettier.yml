@@ -1,0 +1,16 @@
+name: Prettier Test
+run-name: ${{ github.actor }} is running the prettier test
+on:
+    push:
+        branches:
+            - js-version
+jobs:
+  check-prettier-format:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+        - run: npm install
+        - run: npm run format:check

@@ -12,7 +12,7 @@ function cartItem(data) {
                 <section>
                     <button><i class="fa-solid fa-minus"></i></button>
                     <button><i class="fa-solid fa-plus"></i></button>
-                    <button><i class="fa-solid fa-trash"></i></buttoon>
+                    <button><i class="fa-solid fa-trash"></i></button>
                 </section>
             </section>
         </article>

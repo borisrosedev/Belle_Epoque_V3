@@ -55,6 +55,10 @@ class CartService {
 		}
 		return cart
 	}
+
+	removeAllCartItems() {
+		this.localStorageService.removeSpecificItem("cart")
+	}
 }
 
 export default CartService

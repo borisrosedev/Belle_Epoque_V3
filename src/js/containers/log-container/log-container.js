@@ -1,8 +1,18 @@
 import AuthenticationService from "../../services/authentication/authentication.server.js"
 import FormatCheckService from "../../services/format-check/format-check.service.js"
+import LocalStorageService from "../../services/local-storage/local-storage.service.js"
 
 class LogContainer {
-	constructor(isLoggingIn) {
+	constructor(onNavigate, isLoggingIn = true) {
+		this.onNavigate = onNavigate
+		this.localStorageService = new LocalStorageService()
+		this.user = this.localStorageService.getSpecificItem("user")
+
+		if (this.user) {
+			this.onNavigate("#dashboard")
+			return
+		}
+
 		this.formatCheckService = new FormatCheckService()
 		this.authenticationService = new AuthenticationService()
 

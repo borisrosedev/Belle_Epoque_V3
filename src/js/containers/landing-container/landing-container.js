@@ -1,11 +1,15 @@
+import ButtonModel from "../../models/button/button.model.js"
 import button from "../../ui/components/button/button.js"
 import message from "../../ui/components/message/message.js"
 
 class LandingContainer {
-	constructor() {
+	//le constructeur va me permettre d'instancier la classe
+	// Landing Container
+	constructor(onNavigate) {
 		this.onInit()
+		this.onNavigate = onNavigate
 		const landingMenuButton = document.getElementById("landing-menu-button")
-		landingMenuButton.addEventListener("click", this.onClick)
+		landingMenuButton.addEventListener("click", this.onClick.bind(this))
 	}
 
 	onInit() {
@@ -15,16 +19,17 @@ class LandingContainer {
 			content:
 				"Bienvenue sur l'application du restaurant Belle Epoque. Nous sommes heureux et heureuses de vous compter parmi nous."
 		})
-		main.innerHTML += button({
-			id: "landing-menu-button",
-			type: "button",
-			classNames: "custom-button",
-			textContent: "Découvrir notre menu"
-		})
+		main.innerHTML += button(
+			new ButtonModel({
+				id: "landing-menu-button",
+				classNames: "custom-button",
+				textContent: "Découvrir notre menu"
+			})
+		)
 	}
 
 	onClick() {
-		window.location.hash = "#menu"
+		this.onNavigate("#menu")
 	}
 }
 

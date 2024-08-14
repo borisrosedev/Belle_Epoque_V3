@@ -39,6 +39,20 @@
 		padding: 10px;
 	}
 
+	.cart-item {
+		height: 80px;
+		figure {
+			width: 100px;
+		}
+		figure + section {
+			width: calc(2 / 3 * 100%);
+
+			section {
+				width: 50%;
+			}
+		}
+	}
+
 	& > section {
 		display: flex;
 		flex-direction: column;

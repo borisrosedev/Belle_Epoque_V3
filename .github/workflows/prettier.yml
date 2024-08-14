@@ -27,4 +27,4 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.PAT }}
           run: |
-            run: git push https://$PAT@github.com/borisrosedev/Belle_Epoque_V3.git HEAD:js-version
+            git push https://$PAT@github.com/borisrosedev/Belle_Epoque_V3.git HEAD:js-version

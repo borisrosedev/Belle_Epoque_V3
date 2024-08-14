@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - js-version
-
+permissions:
+  contents: write
 jobs:
   check-prettier-format:
     runs-on: ubuntu-latest

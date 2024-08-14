@@ -28,7 +28,7 @@ jobs:
             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
             git add .
             git commit -m "fix: apply prettier formatting"
-            git push https://x-access-token:${{ secrets.BEV3_SECRET }}@github.com/OWNER/REPO.git HEAD:js-version
+            git push https://x-access-token:${{ secrets.BEV3_SECRET }}@github.com/borisrosedev/Belle_Epoque_V3.git HEAD:js-version
           else
             echo "No changes to commit"
           fi

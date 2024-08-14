@@ -26,5 +26,5 @@ jobs:
         - name: Push changes
           shell: bash
           env:
-            PAT: ${{ secrets.PAT }}
+            BEV3_SECRET: ${{ secrets.BEV3_SECRET }}
           run: git push origin js-version

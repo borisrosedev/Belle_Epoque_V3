@@ -1,0 +1,45 @@
+.payment__main {
+	background-color: rgba(0, 0, 0, 0.6);
+	background-blend-mode: color;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	.payment__welcome {
+		height: 100px;
+		display: flex;
+		margin-bottom: 10px;
+		.message {
+			height: 100%;
+		}
+	}
+
+	& > section:last-of-type {
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 10px;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		opacity: 0;
+		animation: show-up 1s ease-in-out forwards;
+		& > header {
+			h1 {
+				font-family: "Parisienne", cursive;
+			}
+			color: #fff;
+			margin-block: 10px;
+		}
+
+		& > section {
+			margin-top: 10px;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			color: #fff;
+			font-family: "Poppins", sans-serif;
+
+			a {
+				color: var(--secondary-color);
+			}
+		}
+	}
+}

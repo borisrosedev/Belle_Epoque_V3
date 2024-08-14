@@ -10,7 +10,7 @@ function field(data) {
                                 <label for="${data.id}"></label>
                                 <input 
                                     id="${data.id}"
-                                    type="${data.type}"
+                                    type="${data.type ? data.type : "text"}"
                                     name="${data.id}"
                                     pattern="${data.pattern}"
                                     required
@@ -26,7 +26,7 @@ function field(data) {
          </article>
     
     
-    `
+    `;
 }
 
-export default field
+export default field;

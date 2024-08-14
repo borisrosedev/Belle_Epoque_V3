@@ -1,7 +1,7 @@
-import LocalStorageService from "../../services/local-storage/local-storage.service.js"
+import LocalStorageService from "../../services/local-storage/local-storage.service.js";
 
 function appHeader() {
-	const user = new LocalStorageService().getSpecificItem("user")
+	const user = new LocalStorageService().getSpecificItem("user");
 
 	return `
     
@@ -56,7 +56,7 @@ function appHeader() {
             
         </header>
     
-    `
+    `;
 }
 
-export default appHeader
+export default appHeader;

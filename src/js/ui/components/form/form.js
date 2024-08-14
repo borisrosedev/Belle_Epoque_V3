@@ -1,5 +1,5 @@
-import button from "../button/button.js"
-import field from "../field/field.js"
+import button from "../button/button.js";
+import field from "../field/field.js";
 
 function form(data) {
 	return `
@@ -13,7 +13,7 @@ function form(data) {
                 <section class="form__errors" id="form-errors"></section>
             </form>
     
-    `
+    `;
 }
 
-export default form
+export default form;

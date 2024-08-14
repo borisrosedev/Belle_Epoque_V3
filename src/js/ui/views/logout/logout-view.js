@@ -1,4 +1,4 @@
-import message from "../../components/message/message.js"
+import message from "../../components/message/message.js";
 
 function logoutView() {
 	return `
@@ -12,7 +12,7 @@ function logoutView() {
                
         </main>
     
-    `
+    `;
 }
 
-export default logoutView
+export default logoutView;

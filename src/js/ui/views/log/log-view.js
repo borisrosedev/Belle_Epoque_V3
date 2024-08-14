@@ -1,4 +1,4 @@
-import form from "../../components/form/form.js"
+import form from "../../components/form/form.js";
 
 function logView(isLoggingIn = true) {
 	const formData = {
@@ -36,11 +36,11 @@ function logView(isLoggingIn = true) {
 				textContent: "Réinitialiser"
 			}
 		]
-	}
+	};
 
 	if (isLoggingIn == false) {
-		const passwordData = formData.fields.pop()
-		const emailData = formData.fields.pop()
+		const passwordData = formData.fields.pop();
+		const emailData = formData.fields.pop();
 		formData.fields.push(
 			{
 				arialLabel: "icône du prénom",
@@ -68,7 +68,7 @@ function logView(isLoggingIn = true) {
 				id: "confirmed-password",
 				pattern: "[a-zA-Z0-9ï!?ûéàè]{12,20}"
 			}
-		)
+		);
 	}
 
 	return `
@@ -94,7 +94,7 @@ function logView(isLoggingIn = true) {
     </main>
     
     
-    `
+    `;
 }
 
-export default logView
+export default logView;

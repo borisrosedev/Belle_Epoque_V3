@@ -5,7 +5,7 @@ function button(data) {
             class="button ${data.classNames ? data.classNames : ""}"
             id="${data.id}"
         >${data.textContent}</button>
-    `
+    `;
 }
 
-export default button
+export default button;

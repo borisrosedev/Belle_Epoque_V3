@@ -1,5 +1,5 @@
-import button from "../button/button.js"
-import paragraph from "../paragraph/paragraph.js"
+import button from "../button/button.js";
+import paragraph from "../paragraph/paragraph.js";
 
 function message(data) {
 	return `
@@ -22,7 +22,7 @@ function message(data) {
 				}
             </section>
         </section>
-    `
+    `;
 }
 
-export default message
+export default message;

@@ -12,7 +12,7 @@ function appProfileMenu() {
 
         </aside>
     
-    `
+    `;
 }
 
-export default appProfileMenu
+export default appProfileMenu;

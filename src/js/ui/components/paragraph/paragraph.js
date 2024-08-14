@@ -1,5 +1,5 @@
 function paragraph(data) {
-	return `<p class="paragraph">${data.content}</p>`
+	return `<p class="paragraph">${data.content}</p>`;
 }
 
-export default paragraph
+export default paragraph;

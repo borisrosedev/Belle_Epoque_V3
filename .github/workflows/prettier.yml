@@ -1,6 +1,7 @@
 name: Prettier Test
-
 run-name: ${{ github.actor }} is running the prettier test
+permissions:
+  contents: write
 
 on:
   push:

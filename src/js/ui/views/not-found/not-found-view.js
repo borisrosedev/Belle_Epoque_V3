@@ -9,7 +9,7 @@ function notFoundView() {
 
         </main>
     
-    `
+    `;
 }
 
-export default notFoundView
+export default notFoundView;

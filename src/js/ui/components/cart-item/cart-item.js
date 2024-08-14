@@ -16,7 +16,7 @@ function cartItem(data) {
                 </section>
             </section>
         </article>
-    `
+    `;
 }
 
-export default cartItem
+export default cartItem;

@@ -1,8 +1,9 @@
 const eslint = require("@eslint/js");
 const globals = require("globals")
-
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 module.exports = [
     eslint.configs.recommended,
+    eslintPluginPrettierRecommended,
     {
         ignores: ["coverage/**/*.js","**/*.config.cjs", "**/*.config.js"]
     },

@@ -26,7 +26,7 @@ function dialogMenuItem(data) {
                 </article>
     
     
-    `
+    `;
 }
 
-export default dialogMenuItem
+export default dialogMenuItem;

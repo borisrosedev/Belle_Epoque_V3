@@ -9,7 +9,7 @@ function appDialog() {
                 </button>
             </header>     
         </dialog>
-    `
+    `;
 }
 
-export default appDialog
+export default appDialog;

@@ -13,7 +13,7 @@ function appCart() {
             <section id="cart-items"></section>
         </aside>
     
-    `
+    `;
 }
 
-export default appCart
+export default appCart;

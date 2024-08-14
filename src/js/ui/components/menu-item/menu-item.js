@@ -25,7 +25,7 @@ function menuItem(data) {
                 </article>
     
     
-    `
+    `;
 }
 
-export default menuItem
+export default menuItem;

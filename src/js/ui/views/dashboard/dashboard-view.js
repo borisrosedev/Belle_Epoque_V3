@@ -11,7 +11,7 @@ function dashboardView() {
             </section>
         </main>
     
-    `
+    `;
 }
 
-export default dashboardView
+export default dashboardView;

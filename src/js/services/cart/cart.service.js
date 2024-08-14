@@ -1,64 +1,66 @@
-import LocalStorageService from "../local-storage/local-storage.service.js"
+import LocalStorageService from "../local-storage/local-storage.service.js";
 
 class CartService {
 	constructor() {
-		this.localStorageService = new LocalStorageService()
+		this.localStorageService = new LocalStorageService();
 	}
 
 	addOneItem(data) {
-		const cart = this.localStorageService.getSpecificItem("cart")
+		const cart = this.localStorageService.getSpecificItem("cart");
 		if (cart) {
-			const itemWithTheSameName = cart.find((el) => el.name === data.name)
+			const itemWithTheSameName = cart.find(
+				(el) => el.name === data.name
+			);
 			if (itemWithTheSameName) {
-				const indexOfIf = cart.indexOf(itemWithTheSameName)
+				const indexOfIf = cart.indexOf(itemWithTheSameName);
 				cart[indexOfIf] = {
 					...itemWithTheSameName,
 					quantity: itemWithTheSameName.quantity + 1
-				}
+				};
 			} else {
-				cart.push({ ...data, quantity: 1 })
+				cart.push({ ...data, quantity: 1 });
 			}
-			this.localStorageService.setSpecificItem("cart", cart)
+			this.localStorageService.setSpecificItem("cart", cart);
 		} else {
 			this.localStorageService.setSpecificItem("cart", [
 				{ ...data, quantity: 1 }
-			])
+			]);
 		}
 	}
 
 	removeOneItem(name) {
-		const cart = this.localStorageService.getSpecificItem("cart")
+		const cart = this.localStorageService.getSpecificItem("cart");
 		if (cart) {
-			const updatedCart = cart.filter((el) => el.name !== name)
-			this.localStorageService.setSpecificItem("cart", updatedCart)
+			const updatedCart = cart.filter((el) => el.name !== name);
+			this.localStorageService.setSpecificItem("cart", updatedCart);
 		} else {
-			return "cart not found"
+			return "cart not found";
 		}
 	}
 
 	getOneCartItem(name) {
-		const cart = this.localStorageService.getSpecificItem("cart")
+		const cart = this.localStorageService.getSpecificItem("cart");
 		if (cart) {
-			const item = cart.find((el) => el.name === name)
+			const item = cart.find((el) => el.name === name);
 			if (!item) {
-				return `item with name ${name} not found`
+				return `item with name ${name} not found`;
 			} else {
-				return item
+				return item;
 			}
 		}
 	}
 
 	getAllCartItems() {
-		const cart = this.localStorageService.getSpecificItem("cart")
+		const cart = this.localStorageService.getSpecificItem("cart");
 		if (!cart) {
-			return "cart not found"
+			return "cart not found";
 		}
-		return cart
+		return cart;
 	}
 
 	removeAllCartItems() {
-		this.localStorageService.removeSpecificItem("cart")
+		this.localStorageService.removeSpecificItem("cart");
 	}
 }
 
-export default CartService
+export default CartService;

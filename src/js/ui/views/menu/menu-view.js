@@ -29,7 +29,7 @@ function menuView() {
 
     
     
-    `
+    `;
 }
 
-export default menuView
+export default menuView;

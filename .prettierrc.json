@@ -6,7 +6,7 @@
 	"printWidth": 80,
 	"useTabs": true,
 	"arrowParens": "always",
-	"proseWrap": "preserve",
+	"proseWrap": "never",
 	"htmlWhitespaceSensitivity": "css",
 	"singleAttributePerLine": true
 }

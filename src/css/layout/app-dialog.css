@@ -4,11 +4,15 @@
 	top: 0;
 	bottom: 0;
 	display: none;
-	height: 500px;
-	width: 500px;
+
 	opacity: 0;
 	animation: show-right 1000ms ease-in-out forwards;
 	flex-direction: column;
+
+	& > p,
+	& > a {
+		margin: 20px;
+	}
 
 	& > header {
 		position: relative;

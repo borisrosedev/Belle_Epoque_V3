@@ -15,7 +15,7 @@ function dialogMenuItem(data) {
                             <span aria-label="prix du produit" style="font-family: 'Poppins', sans-serif">${data.price}$</span>
                             <button
                                 data-itemid="${data.id}" 
-                                id="add-item-${data.id}"
+                                id="dialog-add-item-${data.id}"
                             >
                                 <span class="material-symbols-outlined">
                                     add_shopping_cart

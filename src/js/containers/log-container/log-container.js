@@ -1,8 +1,11 @@
+import AuthenticationService from "../../services/authentication-service/authentication.server.js"
 import FormatCheckService from "../../services/format-check-service/format-check.service.js"
 
 class LogContainer {
 	constructor(isLoggingIn) {
 		this.formatCheckService = new FormatCheckService()
+		this.authenticationService = new AuthenticationService()
+
 		this.isLoggingIn = isLoggingIn
 
 		this.form = document.getElementById("log-form")
@@ -104,7 +107,7 @@ class LogContainer {
 		return false
 	}
 
-	onSubmit(submitFormEvent) {
+	async onSubmit(submitFormEvent) {
 		console.log("into onSubmit")
 		submitFormEvent.preventDefault()
 
@@ -117,7 +120,38 @@ class LogContainer {
 		}
 
 		this.formErrorsSection.innerHTML = ""
-		this.checkFormatFieldValues()
+		const areFormatFieldValuesCorrect = this.checkFormatFieldValues()
+		if (!areFormatFieldValuesCorrect) {
+			this.formErrorsSection.innerHTML +=
+				"<small>Veuillez respecter les indications ci-dessus</small>"
+			return
+		}
+
+		this.formErrorsSection.innerHTML += ""
+
+		if (this.isLoggingIn) {
+			const error = await this.authenticationService.login({
+				email: this.emailField.value,
+				password: this.passwordField.value
+			})
+			if (error) {
+				this.formErrorsSection.innerHTML += `<small>${error}</small>`
+			} else {
+				this.formErrorsSection.innerHTML += `<small style="color: rgb(0,150,0)">Connexion en cours ...</small>`
+
+				setTimeout(() => {
+					this.formErrorsSection.innerHTML = ""
+					window.location.hash = "#dashboard"
+				}, 3000)
+			}
+		} else {
+			this.authenticationService.register({
+				email: this.emailField.value,
+				password: this.passwordField.value,
+				firstname: this.firstnameField.value,
+				lastname: this.lastnameField.value
+			})
+		}
 	}
 }
 

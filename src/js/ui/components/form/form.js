@@ -3,7 +3,7 @@ import field from "../field/field.js"
 
 function form(data) {
 	return `
-        <form class="form" id="${data.id}">
+        <form class="form" id="${data.id}" data-testid="${data.id}">
                 <section class="form__fields">
                     ${data.fields.map((el) => field(el)).join("")}
                 </section>

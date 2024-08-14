@@ -1,3 +1,4 @@
+import DashboardContainer from "./src/js/containers/dashboard-container/dashboard-container.js"
 import HeaderContainer from "./src/js/containers/header-container/header-container.js"
 import LandingContainer from "./src/js/containers/landing-container/landing-container.js"
 import LogContainer from "./src/js/containers/log-container/log-container.js"
@@ -42,6 +43,7 @@ function renderViewDependingOnTheHash(h) {
 		case "#dashboard":
 			root.innerHTML = setPageLayout() + dashboardView()
 			new HeaderContainer()
+			new DashboardContainer()
 			break
 		case "#logout":
 			root.innerHTML = logoutView()

@@ -1,4 +1,4 @@
-import LocalStorageService from "../../services/local-storage-service/local-storage.service.js"
+import LocalStorageService from "../../services/local-storage/local-storage.service.js"
 
 console.log("app-header.js file has been read")
 

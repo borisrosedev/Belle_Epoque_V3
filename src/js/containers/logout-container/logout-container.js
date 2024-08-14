@@ -1,4 +1,4 @@
-import AuthenticationService from "../../services/authentication-service/authentication.server.js"
+import AuthenticationService from "../../services/authentication/authentication.server.js"
 
 class LogoutContainer {
 	constructor() {

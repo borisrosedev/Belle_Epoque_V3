@@ -1,5 +1,5 @@
 import DataSource from "../../data-sources/data-source.js"
-import LocalStorageService from "../local-storage-service/local-storage.service.js"
+import LocalStorageService from "../local-storage/local-storage.service.js"
 
 class AuthenticationService {
 	constructor() {

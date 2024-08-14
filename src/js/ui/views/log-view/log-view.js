@@ -1,6 +1,6 @@
 import form from "../../components/form/form.js"
 
-function logView(isLoggingIn) {
+function logView(isLoggingIn = true) {
 	const formData = {
 		id: "log-form",
 		fields: [

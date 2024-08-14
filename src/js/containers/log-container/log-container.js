@@ -1,5 +1,5 @@
-import AuthenticationService from "../../services/authentication-service/authentication.server.js"
-import FormatCheckService from "../../services/format-check-service/format-check.service.js"
+import AuthenticationService from "../../services/authentication/authentication.server.js"
+import FormatCheckService from "../../services/format-check/format-check.service.js"
 
 class LogContainer {
 	constructor(isLoggingIn) {

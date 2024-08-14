@@ -1,6 +1,6 @@
-import AuthenticationService from "../../services/authentication-service/authentication.server.js"
+import AuthenticationService from "../../services/authentication/authentication.server.js"
 import CartService from "../../services/cart/cart.service.js"
-import LocalStorageService from "../../services/local-storage-service/local-storage.service.js"
+import LocalStorageService from "../../services/local-storage/local-storage.service.js"
 import cartItem from "../../ui/components/cart-item/cart-item.js"
 
 class HeaderContainer {

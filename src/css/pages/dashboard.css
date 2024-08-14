@@ -1,5 +1,26 @@
 .dashboard__main {
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+
+	.dashboard__welcome {
+		display: flex;
+		margin-block: 10px;
+		.message {
+			height: 90px;
+			width: 300px;
+		}
+	}
+
+	.dashboard__cart-section {
+		background-color: rgba(0, 0, 0, 0.6);
+		padding: 10px;
+	}
+
+	#dashboard-cart {
+		display: flex;
+		width: fit-content;
+		flex-direction: column;
+		.cart-item {
+			margin-block: 10px;
+		}
+	}
 }

@@ -1,6 +1,6 @@
 import CartService from "../../services/cart/cart.service.js"
-import LocalStorageService from "../../services/local-storage-service/local-storage.service.js"
-import NotificationService from "../../services/notification-service/notification.service.js"
+import LocalStorageService from "../../services/local-storage/local-storage.service.js"
+import NotificationService from "../../services/notification/notification.service.js"
 import dialogMenuItem from "../../ui/components/dialog-menu-item/dialog-menu-item.js"
 import menuItem from "../../ui/components/menu-item/menu-item.js"
 

@@ -9,12 +9,13 @@ import appDialog from "./src/js/ui/layout/app-dialog.js"
 import appHeader from "./src/js/ui/layout/app-header.js"
 import appNotification from "./src/js/ui/layout/app-notification.js"
 import appProfileMenu from "./src/js/ui/layout/app-profile-menu.js"
-import dashboardView from "./src/js/ui/views/dashboard-view/dashboard-view.js"
-import landingView from "./src/js/ui/views/landing-view/landing-view.js"
-import logView from "./src/js/ui/views/log-view/log-view.js"
-import logoutView from "./src/js/ui/views/logout-view/logout-view.js"
-import menuView from "./src/js/ui/views/menu-view/menu-view.js"
-import notFoundView from "./src/js/ui/views/not-found-view/not-found-view.js"
+import buyingView from "./src/js/ui/views/buying/buying-view.js"
+import dashboardView from "./src/js/ui/views/dashboard/dashboard-view.js"
+import landingView from "./src/js/ui/views/landing/landing-view.js"
+import logView from "./src/js/ui/views/log/log-view.js"
+import logoutView from "./src/js/ui/views/logout/logout-view.js"
+import menuView from "./src/js/ui/views/menu/menu-view.js"
+import notFoundView from "./src/js/ui/views/not-found/not-found-view.js"
 
 const root = document.getElementById("root")
 
@@ -54,6 +55,10 @@ function renderViewDependingOnTheHash(h) {
 		case "#logout":
 			root.innerHTML = logoutView()
 			new LogoutContainer()
+			break
+		case "#buying":
+			root.innerHTML = setPageLayout() + buyingView()
+			new HeaderContainer()
 			break
 		case "#menu":
 			root.innerHTML = setPageLayout() + menuView() + appDialog()

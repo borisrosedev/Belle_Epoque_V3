@@ -26,10 +26,8 @@ jobs:
         id: check_changes
         run: |
           git diff --exit-code || echo "changes=true" >> $GITHUB_ENV
-        continue-on-error: true
 
       - name: Commit changes
-        if: env.changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -37,7 +35,6 @@ jobs:
           git commit -m "fix/prettier-format"
         
       - name: Push changes
-        if: env.changes == 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.BEV3_SECRET }}
+          BEV3: ${{ secrets.BEV3_SECRET }}
         run: git push origin js-version

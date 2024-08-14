@@ -24,7 +24,7 @@ jobs:
             git commit -m "fix/prettier-format"
           continue-on-error: true
         - name: Push changes
+          shell: bash
           env:
-            GITHUB_TOKEN: ${{ secrets.PAT }}
-          run: |
-            git push origin js-version
+            PAT: ${{ secrets.PAT }}
+          run: git push origin js-version

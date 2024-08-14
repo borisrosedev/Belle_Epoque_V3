@@ -9,9 +9,18 @@
 	animation-duration: 1000ms;
 	animation-fill-mode: forwards;
 
-	& > a:first-of-type {
+	.app-header__logo-anchor {
 		font-family: "Parisienne", cursive;
 		font-size: 20px;
+		display: flex;
+		align-items: center;
+		figure {
+			margin-right: 10px;
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			overflow: hidden;
+		}
 	}
 
 	.app-header__actions-and-nav {

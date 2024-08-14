@@ -4,9 +4,6 @@ on:
     branches:
       - js-version
 
-permissions:
-  contents: write
-
 jobs:
   check-prettier-format:
     runs-on: ubuntu-latest
@@ -23,13 +20,15 @@ jobs:
       - run: npm run format:check
 
       - name: Commit changes if needed
+        env:
+          BEV3_SECRET: ${{ secrets.BEV3_SECRET }}
         run: |
           if [[ `git status --porcelain` ]]; then
             git config --global user.name 'github-actions[bot]'
             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
             git add .
             git commit -m "fix: apply prettier formatting"
-            git push origin js-version
+            git push https://x-access-token:${{ secrets.BEV3_SECRET }}@github.com/OWNER/REPO.git HEAD:js-version
           else
             echo "No changes to commit"
           fi

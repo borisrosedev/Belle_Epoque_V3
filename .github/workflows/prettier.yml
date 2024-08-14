@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is running the prettier test
 on:
     push:
         branches:
-            - js-version
+            js-version
 jobs:
   check-prettier-format:
     runs-on: ubuntu-latest

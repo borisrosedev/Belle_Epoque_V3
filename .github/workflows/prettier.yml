@@ -1,30 +1,42 @@
 name: Prettier Test
+
 run-name: ${{ github.actor }} is running the prettier test
+
 on:
-    push:
-        branches:
-            - js-version
+  push:
+    branches:
+      - js-version
+
 jobs:
   check-prettier-format:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-            cache: npm
-        - run: npm install
-        - run: npm run format:write --fix
-        - run: npm run format:check
-        - name: Commit changes
-          run: |
-            git config --global user.name 'github-actions[bot]'
-            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-            git add .
-            git commit -m "fix/prettier-format"
-          continue-on-error: true
-        - name: Push changes
-          shell: bash
-          env:
-            BEV3_SECRET: ${{ secrets.BEV3_SECRET }}
-          run: git push origin js-version
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm install
+
+      - run: npm run format:write --if-present
+      - run: npm run format:check
+
+      - name: Check if there are any changes
+        id: check_changes
+        run: |
+          git diff --exit-code || echo "Changes detected"
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "fix/prettier-format"
+        
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BEV3_SECRET }}
+        run: git push origin js-version

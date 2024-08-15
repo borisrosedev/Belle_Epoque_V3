@@ -5,6 +5,24 @@ class CartService {
 		this.localStorageService = new LocalStorageService();
 	}
 
+
+	updateCartItem (data) {
+
+		new Promise((resolve) => {
+			const cart = this.getAllCartItems()
+			resolve(cart)
+		}).then((cart) => {
+			const exItem = cart.find((el) => el.name == data.name)
+			const index = cart.indexOf(exItem)
+			cart[index] = data
+			this.localStorageService.setSpecificItem('cart', cart)
+		})
+
+
+		
+	
+	}
+
 	addOneItem(data) {
 		const cart = this.localStorageService.getSpecificItem("cart");
 		if (cart) {
@@ -32,6 +50,10 @@ class CartService {
 		const cart = this.localStorageService.getSpecificItem("cart");
 		if (cart) {
 			const updatedCart = cart.filter((el) => el.name !== name);
+			if(updatedCart.length == 0) {
+				this.localStorageService.removeSpecificItem('cart')
+				return 
+			}
 			this.localStorageService.setSpecificItem("cart", updatedCart);
 		} else {
 			return "cart not found";

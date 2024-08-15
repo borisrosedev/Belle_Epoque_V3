@@ -46,7 +46,7 @@ class DashboardContainer {
 
 			for (const el of this.cart) {
 				new Promise((resolve, reject) => {
-					this.dashboardCartSection.innerHTML += cartItem(el);
+					this.dashboardCartSection.innerHTML += cartItem(el,"dashboard-cart");
 					resolve();
 				});
 			}

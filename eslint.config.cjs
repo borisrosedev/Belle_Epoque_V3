@@ -8,17 +8,33 @@ module.exports = [
 		ignores: ["coverage/**/*.js", "**/*.config.cjs", "**/*.config.js"]
 	},
 	{
-		files: ["src/**/*.js", "main.js"],
+		files: ["**/*.cjs"],
+		rules: {
+			"prettier/prettier": "off"
+		},
+		languageOptions: {
+			ecmaVersion: "latest",
+			globals: {
+				__dirname: "readonly",
+				console: "readonly",
+				process: "readonly"
+			}
+		}
+	},
+	{
+		files: ["src/**/*.js", "main.js", "server.js"],
 		ignores: ["**/*.test.js"],
 		rules: {
 			semi: "error",
+			"prettier/prettier": "off",
 			"prefer-const": "error",
 			"no-unused-vars": "off"
 		},
 		languageOptions: {
 			ecmaVersion: "latest",
 			globals: {
-				...globals.browser
+				...globals.browser,
+				Stripe: "readonly"
 			}
 		}
 	},

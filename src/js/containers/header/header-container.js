@@ -63,8 +63,7 @@ class HeaderContainer {
 		});
 	}
 
-
-	updateCartItemsInterface () {
+	updateCartItemsInterface() {
 		const cartItems = document.getElementById("cart-items");
 		const cart = this.cartService.getAllCartItems();
 		cartItems.innerHTML = "";
@@ -77,63 +76,69 @@ class HeaderContainer {
 				new Promise((resolve) => {
 					cartItems.innerHTML += cartItem(el);
 					resolve();
-				}).then(() => {
-					const minusButton = document.getElementById('cart-minus-'+ el.id)
-					minusButton.addEventListener('click', () => this.onAppCartMinusClick(el))
-				}).then(() => {
-					const plusButton = document.getElementById('cart-plus-'+ el.id)
-					plusButton.addEventListener('click', () => this.onAppCartPlusClick(el))
-				}).then(() => {
-					const trashButton = document.getElementById('cart-trash-'+ el.id)
-					trashButton.addEventListener('click', () => this.onAppCartTrashClick(el))
 				})
+					.then(() => {
+						const minusButton = document.getElementById(
+							"cart-minus-" + el.id
+						);
+						minusButton.addEventListener("click", () =>
+							this.onAppCartMinusClick(el)
+						);
+					})
+					.then(() => {
+						const plusButton = document.getElementById(
+							"cart-plus-" + el.id
+						);
+						plusButton.addEventListener("click", () =>
+							this.onAppCartPlusClick(el)
+						);
+					})
+					.then(() => {
+						const trashButton = document.getElementById(
+							"cart-trash-" + el.id
+						);
+						trashButton.addEventListener("click", () =>
+							this.onAppCartTrashClick(el)
+						);
+					});
 			}
 		}
-
 	}
 
-
 	onAppCartMinusClick(data) {
-		if(data.quantity == 1){
-			console.log('on app cart minus == 1')
-			this.onAppCartTrashClick(data)
+		if (data.quantity == 1) {
+			console.log("on app cart minus == 1");
+			this.onAppCartTrashClick(data);
 		}
 
-		if(data.quantity > 1) {
-			const updatedCartItem = { ...data, quantity: data.quantity - 1 }
+		if (data.quantity > 1) {
+			const updatedCartItem = { ...data, quantity: data.quantity - 1 };
 			new Promise((resolve) => {
-				this.cartService.updateCartItem(updatedCartItem)
-				resolve()
+				this.cartService.updateCartItem(updatedCartItem);
+				resolve();
 			}).then(() => {
-				this.updateCartItemsInterface()
-			})
-		
+				this.updateCartItemsInterface();
+			});
 		}
-		
 	}
 
 	onAppCartPlusClick(data) {
-		const updatedCartItem = { ...data, quantity: data.quantity + 1 }
+		const updatedCartItem = { ...data, quantity: data.quantity + 1 };
 		new Promise((resolve) => {
-			this.cartService.updateCartItem(updatedCartItem)
-			resolve()
+			this.cartService.updateCartItem(updatedCartItem);
+			resolve();
 		}).then(() => {
-			this.updateCartItemsInterface()
-		})
-	
-
-		
+			this.updateCartItemsInterface();
+		});
 	}
 
 	onAppCartTrashClick(data) {
 		new Promise((resolve) => {
-			this.cartService.removeOneItem(data.name)
-			resolve()
+			this.cartService.removeOneItem(data.name);
+			resolve();
 		}).then(() => {
-			this.updateCartItemsInterface()
-		})
-	
-	
+			this.updateCartItemsInterface();
+		});
 	}
 
 	onAppCartCloseClick() {
@@ -144,7 +149,7 @@ class HeaderContainer {
 	onAppCartClick() {
 		this.appCart.style.display = "flex";
 		this.appCart.setAttribute("aria-expanded", true);
-		this.updateCartItemsInterface()
+		this.updateCartItemsInterface();
 	}
 }
 

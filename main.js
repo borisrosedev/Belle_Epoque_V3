@@ -16,6 +16,9 @@ import logView from "./src/js/ui/views/log/log-view.js";
 import logoutView from "./src/js/ui/views/logout/logout-view.js";
 import menuView from "./src/js/ui/views/menu/menu-view.js";
 import notFoundView from "./src/js/ui/views/not-found/not-found-view.js";
+import PaymentContainer from "./src/js/containers/payment/payment-container.js";
+import completedView from "./src/js/ui/views/completed/completed-view.js";
+import CompletedContainer from "./src/js/containers/completed/completed-container.js";
 
 const root = document.getElementById("root");
 
@@ -59,6 +62,11 @@ function renderViewDependingOnTheHash(h) {
 		case "#payment":
 			root.innerHTML = setPageLayout() + paymentView();
 			new HeaderContainer();
+			new PaymentContainer();
+			break;
+		case "#completed":
+			root.innerHTML = setPageLayout() + completedView();
+			new CompletedContainer();
 			break;
 		case "#menu":
 			root.innerHTML = setPageLayout() + menuView() + appDialog();

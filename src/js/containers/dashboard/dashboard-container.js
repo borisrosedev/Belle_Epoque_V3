@@ -20,10 +20,89 @@ class DashboardContainer {
 		this.cart = this.cartService.getAllCartItems();
 	}
 
+	onCartMinusClick(data) {
+		if (data.quantity == 1) {
+			this.onCartTrashClick(data);
+		}
+
+		if (data.quantity > 1) {
+			new Promise((resolve) => {
+				this.cartService.updateCartItem({
+					...data,
+					quantity: data.quantity - 1
+				});
+				resolve();
+			}).then(() => {
+				this.onInit();
+			});
+		}
+	}
+
+	onCartPlusClick(data) {
+		new Promise((resolve) => {
+			this.cartService.updateCartItem({
+				...data,
+				quantity: data.quantity + 1
+			});
+			resolve();
+		}).then(() => {
+			this.onInit();
+		});
+	}
+
+	onCartTrashClick(data) {
+		console.log("into", data);
+		new Promise((resolve) => {
+			this.cartService.removeOneItem(data.name);
+			resolve();
+		}).then(() => {
+			console.log("ici");
+			this.onInit();
+		});
+	}
+
+	updateDashboarCartSection() {
+		for (const el of this.cart) {
+			new Promise((resolve, reject) => {
+				this.dashboardCartSection.innerHTML += cartItem(
+					el,
+					"dashboard-cart"
+				);
+				resolve();
+			})
+				.then(() => {
+					const minusButton = document.getElementById(
+						"dashboard-cart-minus-" + el.id
+					);
+					minusButton.addEventListener("click", () =>
+						this.onCartMinusClick(el)
+					);
+				})
+				.then(() => {
+					const plusButton = document.getElementById(
+						"dashboard-cart-plus-" + el.id
+					);
+					plusButton.addEventListener("click", () =>
+						this.onCartPlusClick(el)
+					);
+				})
+				.then(() => {
+					const trashButton = document.getElementById(
+						"dashboard-cart-trash-" + el.id
+					);
+					trashButton.addEventListener("click", () =>
+						this.onCartTrashClick(el)
+					);
+				});
+		}
+	}
+
 	onInit() {
+		this.getUpdatedCart();
+		this.dashboardCartSection.innerHTML = "";
 		if (typeof this.cart !== "string") {
 			new Promise((resolve, reject) => {
-				this.dashboardWelcomeSection.innerHTML += message({
+				this.dashboardWelcomeSection.innerHTML = message({
 					content:
 						"Bienvenue sur votre dashboard " + this.user.firstname,
 					actions: [
@@ -44,15 +123,10 @@ class DashboardContainer {
 				});
 			});
 
-			for (const el of this.cart) {
-				new Promise((resolve, reject) => {
-					this.dashboardCartSection.innerHTML += cartItem(el,"dashboard-cart");
-					resolve();
-				});
-			}
+			this.updateDashboarCartSection();
 		} else {
 			this.dashboardWelcomeSection.innerHTML = message({
-				content: "Bienvenue sur votre dashboard "
+				content: "Bienvenue sur votre dashboard " + this.user.firstname
 			});
 
 			this.dashboardCartSection.innerHTML = paragraph({

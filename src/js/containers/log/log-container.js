@@ -137,7 +137,7 @@ class LogContainer {
 			return;
 		}
 
-		this.formErrorsSection.innerHTML += "";
+		this.formErrorsSection.innerHTML = "";
 
 		if (this.isLoggingIn) {
 			const error = await this.authenticationService.login({

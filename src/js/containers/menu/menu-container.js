@@ -104,6 +104,9 @@ class MenuContainer {
 	onAddToCartClick(data) {
 		if (this.user) {
 			this.cartService.addOneItem(data);
+			this.notificationService.setNotification({
+				content: `Ajout de ${data.name} au panier`
+			});
 		} else {
 			if (this.appDialog.hasAttribute("open")) {
 				return;

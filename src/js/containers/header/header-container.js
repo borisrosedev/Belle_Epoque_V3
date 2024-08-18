@@ -1,23 +1,56 @@
 import AuthenticationService from "../../services/authentication/authentication.server.js";
 import CartService from "../../services/cart/cart.service.js";
 import LocalStorageService from "../../services/local-storage/local-storage.service.js";
+import NotificationService from "../../services/notification/notification.service.js";
 import cartItem from "../../ui/components/cart-item/cart-item.js";
 
 class HeaderContainer {
 	constructor() {
+		this.hash = window.location.hash;
+		if(this.hash == "#dashboard"){
+			this.dashboardCartSection = document.getElementById("dashboard-cart");
+		} 
+
+		// j'ai besoin de connaître des informations sur l'utilisateur actuel de
+		// l'application
 		this.user = new LocalStorageService().getSpecificItem("user");
+
+		// j'aurai sans doute besoin de modifier le cart dans les méthodes de cette classe
+		// donc je fais en sorte de pouvoir utiliser le service de panier partout dans mon application
+		// en le transformant en attribut avec le mot clé this
 		this.cartService = new CartService();
+
+		// j'aurai besoin à un moment donné d'utiliser la méthode logout()
+		// du service d'authentification
 		this.authenticationService = new AuthenticationService();
+
+		this.notificationService = new NotificationService();
+
+
 		if (this.user) {
+
+			// On aura besoin d'afficher le menu ( display: flex ) à un moment donné
 			this.appProfileMenu = document.getElementById("app-profile-menu");
+
+		
 			this.appProfileMenuFigure = document.getElementById(
 				"app-profile-menu__figure"
 			);
+
+
+			// On aura besoin de cliquer sur l'image de l'utilisateur pour accéder 
+			// ou faire apparaître le menu à un moment donné également
 			this.profileActions = document.getElementById("profile-actions");
+
 			this.profileActions.addEventListener(
 				"click",
 				this.onProfileActionsClick.bind(this)
 			);
+
+
+
+			//le bouton panier représenté par le sac 
+			// je lui ajoute un écouteur de l'événement click
 			this.appCartButton = document.getElementById("app-cart-button");
 			this.appCartButton.addEventListener(
 				"click",
@@ -31,6 +64,50 @@ class HeaderContainer {
 				"click",
 				this.onAppCartCloseClick.bind(this)
 			);
+		}
+	}
+
+	updateDashboarCartSectionInterface() {
+		if(this.hash == "#dashboard") {
+			const cart = this.cartService.getAllCartItems();
+			this.dashboardCartSection.innerHTML = ""; 
+			if (typeof cart == "string") {
+				const message =
+					"<p style='text-align:center; margin-block:5px;'>Aucun article dans votre panier actuellement<p>";
+				this.dashboardCartSection.innerHTML = message;
+			} else {
+				for (const el of cart) {
+					new Promise((resolve) => {
+						this.dashboardCartSection.innerHTML += cartItem(el, "dashboard");
+						resolve();
+					})
+						.then(() => {
+							const minusButton = document.getElementById(
+								"cart-minus-" + el.id
+							);
+							minusButton.addEventListener("click", () =>
+								this.onAppCartMinusClick(el)
+							);
+						})
+						.then(() => {
+							const plusButton = document.getElementById(
+								"cart-plus-" + el.id
+							);
+							plusButton.addEventListener("click", () =>
+								this.onAppCartPlusClick(el)
+							);
+						})
+						.then(() => {
+							const trashButton = document.getElementById(
+								"cart-trash-" + el.id
+							);
+							trashButton.addEventListener("click", () =>
+								this.onAppCartTrashClick(el)
+							);
+						});
+				}
+			}
+
 		}
 	}
 
@@ -118,8 +195,14 @@ class HeaderContainer {
 				resolve();
 			}).then(() => {
 				this.updateCartItemsInterface();
+			}).then(() => {
+				this.updateDashboarCartSectionInterface();
+			}).then(() => {
+				this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
 			});
 		}
+
+	
 	}
 
 	onAppCartPlusClick(data) {
@@ -129,6 +212,10 @@ class HeaderContainer {
 			resolve();
 		}).then(() => {
 			this.updateCartItemsInterface();
+		}).then(() => {
+			this.updateDashboarCartSectionInterface();
+		}).then(() => {
+			this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
 		});
 	}
 
@@ -138,6 +225,10 @@ class HeaderContainer {
 			resolve();
 		}).then(() => {
 			this.updateCartItemsInterface();
+		}).then(() => {
+			this.updateDashboarCartSectionInterface();
+		}).then(() => {
+			this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
 		});
 	}
 

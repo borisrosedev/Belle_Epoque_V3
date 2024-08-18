@@ -7,8 +7,9 @@ function appHeader() {
     
      <header class="app__header landing__header flex-between fixed-top">
             <a class="custom-anchor app-header__logo-anchor" href="">
-            <figure><img src="./assets/logo.jpg" alt="logo de l'application Belle Epoque"/></figure>
-            <span>Belle Epoque</span></a>
+                <figure><img src="./assets/logo.jpg" alt="logo de l'application Belle Epoque"/></figure>
+                <span>Belle Epoque</span>
+            </a>
 
             <section class="app-header__actions-and-nav">
             ${

@@ -1,5 +1,6 @@
 import CartService from "../../services/cart/cart.service.js";
 import LocalStorageService from "../../services/local-storage/local-storage.service.js";
+import button from "../../ui/components/button/button.js";
 import cartItem from "../../ui/components/cart-item/cart-item.js";
 import message from "../../ui/components/message/message.js";
 import paragraph from "../../ui/components/paragraph/paragraph.js";
@@ -9,7 +10,7 @@ class DashboardContainer {
 		this.cartService = new CartService();
 		this.user = new LocalStorageService().getSpecificItem("user");
 		this.cart = this.cartService.getAllCartItems();
-
+		this.dashboardPaymentSection = document.getElementById("dashboard-payment");
 		this.dashboardWelcomeSection =
 			document.getElementById("dashboard-welcome");
 		this.dashboardCartSection = document.getElementById("dashboard-cart");
@@ -59,6 +60,26 @@ class DashboardContainer {
 			console.log("ici");
 			this.onInit();
 		});
+	}
+
+
+
+
+	updateDashboardPaymentSection() {
+	
+		this.dashboardPaymentSection.innerHTML = "";
+		this.dashboardPaymentSection.style.display = "none";
+		this.cartService.getCartTotalCost()
+			.then((cost) => {
+				console.log(cost);
+				if(cost){
+					this.dashboardPaymentSection.style.display = "flex";
+					this.dashboardPaymentSection.innerHTML += paragraph({ id: "dashboard-payment-cost", content: 'Coût total de votre panier: ' + cost + ' $' });
+					this.dashboardPaymentSection.innerHTML += button({ textContent: 'Procéder au paiement' , classNames: "custom-button"});
+				}
+			});
+
+		
 	}
 
 	updateDashboarCartSection() {
@@ -124,6 +145,7 @@ class DashboardContainer {
 			});
 
 			this.updateDashboarCartSection();
+			
 		} else {
 			this.dashboardWelcomeSection.innerHTML = message({
 				content: "Bienvenue sur votre dashboard " + this.user.firstname
@@ -133,6 +155,7 @@ class DashboardContainer {
 				content: "Aucun article dans votre panier actuellement"
 			});
 		}
+		this.updateDashboardPaymentSection();
 	}
 }
 

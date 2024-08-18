@@ -30,6 +30,22 @@
 	.dashboard__cart-section {
 		background-color: rgba(0, 0, 0, 0.6);
 		padding: 10px;
+		
+	}
+
+	#dashboard-payment {
+		margin-block: 10px;
+		display: flex;
+		flex-direction: column;
+		background-color: rgba(0, 0, 0, 0.6);
+		padding: 10px;
+		display: none;
+		color: #fff;
+
+		button {
+			align-self: flex-start;
+			margin-block: 10px;
+		}
 	}
 
 	#dashboard-cart {

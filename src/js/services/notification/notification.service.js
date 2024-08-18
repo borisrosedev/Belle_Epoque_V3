@@ -1,11 +1,27 @@
 import message from "../../ui/components/message/message.js";
 
 class NotificationService {
-	notificationAside = document.getElementById("app-notification");
 
-	constructor() {}
+	constructor() {
+		// je récupère l'élément html ci-dessous qui est déjà à ce niveau-là présent 
+		// dans mon élément html ayant comme id root
+		// et j'en fais un attribut de la classe NotifificationService
 
-	setNotification(data) {
+		this.notificationAside = document.querySelector("#app-notification");
+	}
+
+	setNotification(data, duration = 7000) {
+
+		if(!data || !data.content) {
+			throw new Error("Vous devez définir un objet data et une propriété content dedans pour la méthode SetNotifcation");
+		} 
+
+		this.duration = duration;
+
+		if(this.timeOutId){
+			clearTimeout(this.timeOutId);
+		}
+	
 		this.notificationAside.style.display = "flex";
 		this.notificationAside.innerHTML = message({
 			id: "notification-message",
@@ -17,10 +33,12 @@ class NotificationService {
 		);
 		notificationMessage.classList.add("notification-message");
 
-		setTimeout(() => {
-			this.notificationAside.style.display = "none";
-			this.notificationAside.innerHTML = "";
-		}, 7000);
+		this.timeOutId = setTimeout(this.displayNotification, this.duration);
+	}
+
+	displayNotification() {
+		this.notificationAside.style.display = "none";
+		this.notificationAside.innerHTML = "";
 	}
 }
 

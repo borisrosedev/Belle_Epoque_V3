@@ -4,11 +4,10 @@ function dashboardView() {
             <section class="dashboard__welcome" id="dashboard-welcome"></section>
             <section class="dashboard__cart-section">
                 <h2 style="font-family:'Parisienne', cursive; color: #fff"> Votre panier </h2>
-                <section id="dashboard-cart"><section>
+                <section id="dashboard-cart"></section>
             </section>
      
-            <section id="dashboard-actions">
-            </section>
+            <section class="dashboard__payment-section" id="dashboard-payment"></section
         </main>
     
     `;

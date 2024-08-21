@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: belle-epoque-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: belle-epoque-frontend
+  template:
+    metadata:
+      labels:
+        app: belle-epoque-frontend
+    spec:
+      containers:
+        - name: belle-epoque-frontend
+          image: mini-belle-epoque:client-dev
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - mountPath: /usr/local/app
+              name: app-volume
+      volumes:
+        - name: app-volume
+          hostPath:
+            path: /mnt/app
+            type: Directory 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: belle-epoque-frontend
+spec:
+  type: NodePort
+  selector:
+    app: belle-epoque-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30000

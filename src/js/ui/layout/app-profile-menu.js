@@ -6,8 +6,9 @@ function appProfileMenu() {
             </header>
             <ul>
                 <li><button id="dashboard-button">dashboard</button></li>
+                <li><button id="profile-button">profil</button></li>
                 <li><button id="logout-button">déconnexion</button></li>
-                <li><button>paramètres</button></li>
+        
             <ul>
 
         </aside>

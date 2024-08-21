@@ -1,3 +1,4 @@
+@import url("./src/css/vendors/bulma.css");
 @import url("./src/css/base/tipography.css");
 @import url("./src/css/abstracts/variables.css");
 @import url("./src/css/abstracts/keyframes.css");
@@ -17,6 +18,7 @@
 @import url("./src/css/components/button-like-anchor.css");
 @import url("./src/css/components/form.css");
 @import url("./src/css/components/cart-item.css");
+@import url("./src/css/components/user-card.css");
 
 @import url("./src/css/pages/landing.css");
 @import url("./src/css/pages/menu.css");
@@ -26,3 +28,4 @@
 @import url("./src/css/pages/not-found.css");
 @import url("./src/css/pages/payment.css");
 @import url("./src/css/pages/completed.css");
+@import url("./src/css/pages/profile.css");

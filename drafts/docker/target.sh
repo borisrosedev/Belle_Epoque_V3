@@ -1,0 +1,1 @@
+docker build --target client-dev -t mini-belle-epoque:client-dev .

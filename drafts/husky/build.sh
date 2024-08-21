@@ -1,0 +1,1 @@
+docker build --target build-stage -t mon-app:build-stage .

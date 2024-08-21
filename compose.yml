@@ -14,11 +14,12 @@ services:
     develop:
       watch:
         - path: ./
-          target: ./
+          target: /usr/local/app
           action: sync
           ignore:
             - node_modules 
-        - path: package.json 
+        - path: package.json
+          target: /usr/local/app 
           action: rebuild
     labels:
       traefik.http.routers.belle-epoque-frontend.rule: Host(`localhost`)

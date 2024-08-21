@@ -5,7 +5,8 @@ import NotificationService from "../../services/notification/notification.servic
 import cartItem from "../../ui/components/cart-item/cart-item.js";
 
 class HeaderContainer {
-	constructor() {
+	constructor(onNavigate) {
+		this.onNavigate = onNavigate;
 		this.hash = window.location.hash;
 		if(this.hash == "#dashboard"){
 			this.dashboardCartSection = document.getElementById("dashboard-cart");
@@ -127,16 +128,22 @@ class HeaderContainer {
 
 		const dashboardButton = document.getElementById("dashboard-button");
 		const logoutButton = document.getElementById("logout-button");
+		const profileButton = document.getElementById("profile-button");
+
+		profileButton.addEventListener("click", () => {
+			this.onAppProfileMenuCloseClick();
+			this.onNavigate("#profile");
+		});
 
 		dashboardButton.addEventListener("click", () => {
 			this.onAppProfileMenuCloseClick();
-			window.location.hash = "#dashboard";
+			this.onNavigate("#dashboard");
 		});
 
 		logoutButton.addEventListener("click", () => {
 			this.onAppProfileMenuCloseClick();
 			this.authenticationService.logout();
-			window.location.hash = "";
+			this.onNavigate("");
 		});
 	}
 

@@ -6,7 +6,8 @@ import message from "../../ui/components/message/message.js";
 import paragraph from "../../ui/components/paragraph/paragraph.js";
 
 class DashboardContainer {
-	constructor() {
+	constructor(onNavigate) {
+		this.onNavigate = onNavigate;
 		this.cartService = new CartService();
 		this.user = new LocalStorageService().getSpecificItem("user");
 		this.cart = this.cartService.getAllCartItems();
@@ -75,7 +76,17 @@ class DashboardContainer {
 				if(cost){
 					this.dashboardPaymentSection.style.display = "flex";
 					this.dashboardPaymentSection.innerHTML += paragraph({ id: "dashboard-payment-cost", content: 'Coût total de votre panier: ' + cost + ' $' });
-					this.dashboardPaymentSection.innerHTML += button({ textContent: 'Procéder au paiement' , classNames: "custom-button"});
+					this.dashboardPaymentSection.innerHTML += button({ 
+						textContent: 'Procéder au paiement' , 
+						classNames: "custom-button", 
+						id: "dashboard-payment-button" 
+					});
+
+					const dashboardPaymentButton = document.getElementById("dashboard-payment-button");
+					dashboardPaymentButton.addEventListener("click", () => {
+						this.onNavigate("#payment");
+					});
+
 				}
 			});
 

@@ -1,6 +1,8 @@
 function completedView () {
     return `
-        <main class="app__main completed__main"></main>
+        <main class="app__main completed__main">
+            <section id="payment-result"></section>
+        </main>
     `;
 }
 

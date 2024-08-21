@@ -19,6 +19,8 @@ import notFoundView from "./src/js/ui/views/not-found/not-found-view.js";
 import PaymentContainer from "./src/js/containers/payment/payment-container.js";
 import completedView from "./src/js/ui/views/completed/completed-view.js";
 import CompletedContainer from "./src/js/containers/completed/completed-container.js";
+import profileView from "./src/js/ui/views/profile/profile-view.js";
+import ProfileContainer from "./src/js/containers/profile/profile-container.js";
 
 const root = document.getElementById("root");
 
@@ -37,23 +39,28 @@ function renderViewDependingOnTheHash(h) {
 	switch (h) {
 		case "":
 			root.innerHTML = setPageLayout() + landingView();
-			new HeaderContainer();
+			new HeaderContainer(window.onNavigate);
 			new LandingContainer(window.onNavigate);
 			break;
 		case "#login":
 			root.innerHTML = setPageLayout() + logView(true);
-			new HeaderContainer();
+			new HeaderContainer(window.onNavigate);
 			new LogContainer(window.onNavigate);
 			break;
 		case "#register":
 			root.innerHTML = setPageLayout() + logView(false);
-			new HeaderContainer();
+			new HeaderContainer(window.onNavigate);
 			new LogContainer(false);
+			break;
+		case "#profile":
+			root.innerHTML = setPageLayout() + profileView();
+			new HeaderContainer(window.onNavigate);
+			new ProfileContainer(window.onNavigate);
 			break;
 		case "#dashboard":
 			root.innerHTML = setPageLayout() + dashboardView();
-			new HeaderContainer();
-			new DashboardContainer();
+			new HeaderContainer(window.onNavigate);
+			new DashboardContainer(window.onNavigate);
 			break;
 		case "#logout":
 			root.innerHTML = logoutView();
@@ -61,8 +68,8 @@ function renderViewDependingOnTheHash(h) {
 			break;
 		case "#payment":
 			root.innerHTML = setPageLayout() + paymentView();
-			new HeaderContainer();
-			new PaymentContainer();
+			new HeaderContainer(window.onNavigate);
+			new PaymentContainer(window.onNavigate);
 			break;
 		case "#completed":
 			root.innerHTML = setPageLayout() + completedView();
@@ -70,7 +77,7 @@ function renderViewDependingOnTheHash(h) {
 			break;
 		case "#menu":
 			root.innerHTML = setPageLayout() + menuView() + appDialog();
-			new HeaderContainer();
+			new HeaderContainer(window.onNavigate);
 			new MenuContainer();
 			break;
 		default:

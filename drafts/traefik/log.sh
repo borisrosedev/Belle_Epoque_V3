@@ -1,0 +1,1 @@
+kubectl logs -l app=reverse-proxy

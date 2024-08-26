@@ -3,16 +3,17 @@ import LocalStorageService from "../../services/local-storage/local-storage.serv
 import userCard from "../../ui/components/user-card/user-card.js";
 
 class ProfileContainer extends AuthRequiredContainer {
-    constructor(onNavigate) {
-        super(onNavigate);
-        this.profileUserSection = document.getElementById('profile-user-section');
-        this.createUserCardInterface();
-    }
+	constructor(onNavigate) {
+		super(onNavigate);
+		this.profileUserSection = document.getElementById(
+			"profile-user-section"
+		);
+		this.createUserCardInterface();
+	}
 
-    createUserCardInterface () {
-        this.profileUserSection.innerHTML = userCard(this.user);
-    }
-
+	createUserCardInterface() {
+		this.profileUserSection.innerHTML = userCard(this.user);
+	}
 }
 
 export default ProfileContainer;

@@ -1,9 +1,8 @@
 import message from "../../ui/components/message/message.js";
 
 class NotificationService {
-
 	constructor() {
-		// je récupère l'élément html ci-dessous qui est déjà à ce niveau-là présent 
+		// je récupère l'élément html ci-dessous qui est déjà à ce niveau-là présent
 		// dans mon élément html ayant comme id root
 		// et j'en fais un attribut de la classe NotifificationService
 
@@ -11,17 +10,18 @@ class NotificationService {
 	}
 
 	setNotification(data, duration = 7000) {
-
-		if(!data || !data.content) {
-			throw new Error("Vous devez définir un objet data et une propriété content dedans pour la méthode SetNotifcation");
-		} 
+		if (!data || !data.content) {
+			throw new Error(
+				"Vous devez définir un objet data et une propriété content dedans pour la méthode SetNotifcation"
+			);
+		}
 
 		this.duration = duration;
 
-		if(this.timeOutId){
+		if (this.timeOutId) {
 			clearTimeout(this.timeOutId);
 		}
-	
+
 		this.notificationAside.style.display = "flex";
 		this.notificationAside.innerHTML = message({
 			id: "notification-message",

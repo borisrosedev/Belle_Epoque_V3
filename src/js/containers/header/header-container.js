@@ -8,9 +8,10 @@ class HeaderContainer {
 	constructor(onNavigate) {
 		this.onNavigate = onNavigate;
 		this.hash = window.location.hash;
-		if(this.hash == "#dashboard"){
-			this.dashboardCartSection = document.getElementById("dashboard-cart");
-		} 
+		if (this.hash == "#dashboard") {
+			this.dashboardCartSection =
+				document.getElementById("dashboard-cart");
+		}
 
 		// j'ai besoin de connaître des informations sur l'utilisateur actuel de
 		// l'application
@@ -27,19 +28,15 @@ class HeaderContainer {
 
 		this.notificationService = new NotificationService();
 
-
 		if (this.user) {
-
 			// On aura besoin d'afficher le menu ( display: flex ) à un moment donné
 			this.appProfileMenu = document.getElementById("app-profile-menu");
 
-		
 			this.appProfileMenuFigure = document.getElementById(
 				"app-profile-menu__figure"
 			);
 
-
-			// On aura besoin de cliquer sur l'image de l'utilisateur pour accéder 
+			// On aura besoin de cliquer sur l'image de l'utilisateur pour accéder
 			// ou faire apparaître le menu à un moment donné également
 			this.profileActions = document.getElementById("profile-actions");
 
@@ -48,19 +45,16 @@ class HeaderContainer {
 				this.onProfileActionsClick.bind(this)
 			);
 
-
-
-			//le bouton panier représenté par le sac 
+			//le bouton panier représenté par le sac
 			// je lui ajoute un écouteur de l'événement click
 			this.appCartButton = document.getElementById("app-cart-button");
-			
-			
+
 			this.appCartButton.addEventListener(
 				"click",
-				(window.location.hash !== "#payment" ? this.onAppCartClick.bind(this): this.onAppCartClickOnPaymentPage.bind(this))
+				window.location.hash !== "#payment"
+					? this.onAppCartClick.bind(this)
+					: this.onAppCartClickOnPaymentPage.bind(this)
 			);
-
-
 
 			this.appCart = document.getElementById("app-cart");
 			const appCartCloseButton = document.getElementById(
@@ -75,15 +69,16 @@ class HeaderContainer {
 
 	onAppCartClickOnPaymentPage() {
 		this.notificationService.setNotification({
-			type: 'info',
-			content: 'Vous ne pouvez plus accéder au panier durant la phase de paiement'
+			type: "info",
+			content:
+				"Vous ne pouvez plus accéder au panier durant la phase de paiement"
 		});
 	}
 
 	updateDashboarCartSectionInterface() {
-		if(this.hash == "#dashboard") {
+		if (this.hash == "#dashboard") {
 			const cart = this.cartService.getAllCartItems();
-			this.dashboardCartSection.innerHTML = ""; 
+			this.dashboardCartSection.innerHTML = "";
 			if (typeof cart == "string") {
 				const message =
 					"<p style='text-align:center; margin-block:5px;'>Aucun article dans votre panier actuellement<p>";
@@ -91,7 +86,10 @@ class HeaderContainer {
 			} else {
 				for (const el of cart) {
 					new Promise((resolve) => {
-						this.dashboardCartSection.innerHTML += cartItem(el, "dashboard");
+						this.dashboardCartSection.innerHTML += cartItem(
+							el,
+							"dashboard"
+						);
 						resolve();
 					})
 						.then(() => {
@@ -120,7 +118,6 @@ class HeaderContainer {
 						});
 				}
 			}
-
 		}
 	}
 
@@ -211,16 +208,20 @@ class HeaderContainer {
 			new Promise((resolve) => {
 				this.cartService.updateCartItem(updatedCartItem);
 				resolve();
-			}).then(() => {
-				this.updateCartItemsInterface();
-			}).then(() => {
-				this.updateDashboarCartSectionInterface();
-			}).then(() => {
-				this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
-			});
+			})
+				.then(() => {
+					this.updateCartItemsInterface();
+				})
+				.then(() => {
+					this.updateDashboarCartSectionInterface();
+				})
+				.then(() => {
+					this.notificationService.setNotification({
+						type: "success",
+						content: "Panier mis à jour"
+					});
+				});
 		}
-
-	
 	}
 
 	onAppCartPlusClick(data) {
@@ -228,26 +229,38 @@ class HeaderContainer {
 		new Promise((resolve) => {
 			this.cartService.updateCartItem(updatedCartItem);
 			resolve();
-		}).then(() => {
-			this.updateCartItemsInterface();
-		}).then(() => {
-			this.updateDashboarCartSectionInterface();
-		}).then(() => {
-			this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
-		});
+		})
+			.then(() => {
+				this.updateCartItemsInterface();
+			})
+			.then(() => {
+				this.updateDashboarCartSectionInterface();
+			})
+			.then(() => {
+				this.notificationService.setNotification({
+					type: "success",
+					content: "Panier mis à jour"
+				});
+			});
 	}
 
 	onAppCartTrashClick(data) {
 		new Promise((resolve) => {
 			this.cartService.removeOneItem(data.name);
 			resolve();
-		}).then(() => {
-			this.updateCartItemsInterface();
-		}).then(() => {
-			this.updateDashboarCartSectionInterface();
-		}).then(() => {
-			this.notificationService.setNotification({ type: 'success', content: 'Panier mis à jour'});
-		});
+		})
+			.then(() => {
+				this.updateCartItemsInterface();
+			})
+			.then(() => {
+				this.updateDashboarCartSectionInterface();
+			})
+			.then(() => {
+				this.notificationService.setNotification({
+					type: "success",
+					content: "Panier mis à jour"
+				});
+			});
 	}
 
 	onAppCartCloseClick() {

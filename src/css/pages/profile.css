@@ -1,5 +1,5 @@
 .profile__main {
-    background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 	background-blend-mode: color;
 	align-items: center;
 	justify-content: center;
@@ -14,11 +14,11 @@
 		.user-card {
 			height: 100%;
 			width: 100%;
-			
+
 			flex-direction: column;
 			header {
 				height: 50%;
-			
+
 				display: flex;
 				background-color: var(--secondary-color);
 				& > section {
@@ -32,35 +32,31 @@
 				}
 				& > section:has(h2) {
 					align-items: center;
-				
+
 					width: 70%;
 
 					h2 {
 						font-family: "Parisienne", cursive;
 					}
 				}
-			    figure {
+				figure {
 					height: 90px;
 					width: 90px;
 				}
-
-			
-
-		}
-
-		header + section {
-			background-color: #fff;
-			border: solid white 3px;
-			padding: 10px;
-			height: 50%;
-			display: flex;
-			flex-direction: column;
-
-			p {
-				margin-block: 5px;
 			}
-					
+
+			header + section {
+				background-color: #fff;
+				border: solid white 3px;
+				padding: 10px;
+				height: 50%;
+				display: flex;
+				flex-direction: column;
+
+				p {
+					margin-block: 5px;
+				}
+			}
 		}
-	}
 	}
 }

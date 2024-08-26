@@ -1,8 +1,5 @@
 /*----------------------------MENU PAGE-------------------------------*/
 
-
-
-
 .menu__main {
 	background-color: rgba(0, 0, 0, 0.6);
 	background-blend-mode: color;
@@ -95,10 +92,8 @@
 	}
 }
 
-
 @media (width < 435px) {
 	.menu__main {
-
 		article {
 			width: 100%;
 			margin-right: unset;

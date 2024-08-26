@@ -1,28 +1,26 @@
 .completed__main {
-    background-color: rgba(0,0,0,0.5);
-    background-blend-mode: color;
-    align-items: center;
-    justify-content: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	background-blend-mode: color;
+	align-items: center;
+	justify-content: center;
 
-    #payment-result {
-        width: 300px;
-        height: 300px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        i.success{
-            font-size: 50px;
-            color: rgb(117, 175, 117);
-        }
+	#payment-result {
+		width: 300px;
+		height: 300px;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: white;
+		i.success {
+			font-size: 50px;
+			color: rgb(117, 175, 117);
+		}
 
-        i.failure {
-            font-size: 50px;
-            color: rgb(231, 115, 100);
-        }
-    }
-   
+		i.failure {
+			font-size: 50px;
+			color: rgb(231, 115, 100);
+		}
+	}
 }
-

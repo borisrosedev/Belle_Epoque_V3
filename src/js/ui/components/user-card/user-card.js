@@ -1,7 +1,7 @@
 import paragraph from "../paragraph/paragraph.js";
 
-function userCard (data) {
-    return `
+function userCard(data) {
+	return `
         <article class="user-card">
             <header>
                 <section>
@@ -14,8 +14,8 @@ function userCard (data) {
                 </section>
             </header>
             <section>
-                ${paragraph({ content: '<b>Age : </b>'+ data.age + ' ans'})}
-                ${paragraph({ content: '<b>Email : </b>'+ data.email})}
+                ${paragraph({ content: "<b>Age : </b>" + data.age + " ans" })}
+                ${paragraph({ content: "<b>Email : </b>" + data.email })}
             </section>
         </article>
     

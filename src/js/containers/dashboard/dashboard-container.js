@@ -9,10 +9,11 @@ import AuthRequiredContainer from "../../models/auth-required-container/auth-req
 class DashboardContainer extends AuthRequiredContainer {
 	constructor(onNavigate) {
 		super(onNavigate);
-		if(!this.checkAuth()) return;
+		if (!this.checkAuth()) return;
 		this.cartService = new CartService();
 		this.cart = this.cartService.getAllCartItems();
-		this.dashboardPaymentSection = document.getElementById("dashboard-payment");
+		this.dashboardPaymentSection =
+			document.getElementById("dashboard-payment");
 		this.dashboardWelcomeSection =
 			document.getElementById("dashboard-welcome");
 		this.dashboardCartSection = document.getElementById("dashboard-cart");
@@ -62,33 +63,30 @@ class DashboardContainer extends AuthRequiredContainer {
 		});
 	}
 
-
-
-
 	updateDashboardPaymentSection() {
-	
 		this.dashboardPaymentSection.innerHTML = "";
 		this.dashboardPaymentSection.style.display = "none";
-		this.cartService.getCartTotalCost()
-			.then((cost) => {
-				if(cost){
-					this.dashboardPaymentSection.style.display = "flex";
-					this.dashboardPaymentSection.innerHTML += paragraph({ id: "dashboard-payment-cost", content: 'Coût total de votre panier: ' + cost + ' $' });
-					this.dashboardPaymentSection.innerHTML += button({ 
-						textContent: 'Procéder au paiement' , 
-						classNames: "custom-button", 
-						id: "dashboard-payment-button" 
-					});
+		this.cartService.getCartTotalCost().then((cost) => {
+			if (cost) {
+				this.dashboardPaymentSection.style.display = "flex";
+				this.dashboardPaymentSection.innerHTML += paragraph({
+					id: "dashboard-payment-cost",
+					content: "Coût total de votre panier: " + cost + " $"
+				});
+				this.dashboardPaymentSection.innerHTML += button({
+					textContent: "Procéder au paiement",
+					classNames: "custom-button",
+					id: "dashboard-payment-button"
+				});
 
-					const dashboardPaymentButton = document.getElementById("dashboard-payment-button");
-					dashboardPaymentButton.addEventListener("click", () => {
-						this.onNavigate("#payment");
-					});
-
-				}
-			});
-
-		
+				const dashboardPaymentButton = document.getElementById(
+					"dashboard-payment-button"
+				);
+				dashboardPaymentButton.addEventListener("click", () => {
+					this.onNavigate("#payment");
+				});
+			}
+		});
 	}
 
 	updateDashboarCartSection() {
@@ -154,7 +152,6 @@ class DashboardContainer extends AuthRequiredContainer {
 			});
 
 			this.updateDashboarCartSection();
-			
 		} else {
 			this.dashboardWelcomeSection.innerHTML = message({
 				content: "Bienvenue sur votre dashboard " + this.user.firstname

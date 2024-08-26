@@ -5,21 +5,19 @@ class CartService {
 		this.localStorageService = new LocalStorageService();
 	}
 
-
 	async getCartTotalCost() {
-		
 		return new Promise((resolve) => {
-				resolve(this.getAllCartItems());
-			}).then((cart) => {
-				if(typeof cart == "string"){
-					return;
-				}
-				let totalCost = 0;
-				for(const el of cart) {
-					totalCost += el.quantity * el.price;
-				}
-				return totalCost;
-			});
+			resolve(this.getAllCartItems());
+		}).then((cart) => {
+			if (typeof cart == "string") {
+				return;
+			}
+			let totalCost = 0;
+			for (const el of cart) {
+				totalCost += el.quantity * el.price;
+			}
+			return totalCost;
+		});
 	}
 
 	updateCartItem(data) {

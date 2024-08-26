@@ -37,11 +37,10 @@ class NotificationService {
 	}
 
 	displayNotification() {
-		if(this.notificationAside){
+		if (this.notificationAside) {
 			this.notificationAside.style.display = "none";
 			this.notificationAside.innerHTML = "";
 		}
-	
 	}
 }
 

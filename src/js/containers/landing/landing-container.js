@@ -8,7 +8,7 @@ class LandingContainer {
 	constructor(onNavigate) {
 		this.onInit();
 		this.onNavigate = onNavigate;
-		
+
 		const landingMenuButton = document.getElementById(
 			"landing-menu-button"
 		);
@@ -16,8 +16,9 @@ class LandingContainer {
 	}
 
 	onInit() {
-		
-		this.landingMessageAndButtonSection = document.getElementById("landing-message-and-button");
+		this.landingMessageAndButtonSection = document.getElementById(
+			"landing-message-and-button"
+		);
 		this.landingMessageAndButtonSection.innerHTML += message({
 			content:
 				"Bienvenue sur l'application du restaurant Belle Epoque. Nous sommes heureux et heureuses de vous compter parmi nous."

@@ -13,7 +13,8 @@ class HeaderContainer {
 		if (this.hash == "#dashboard") {
 			this.dashboardCartSection =
 				document.getElementById("dashboard-cart");
-			this.dashboardPaymentSection = document.getElementById("dashboard-payment");	
+			this.dashboardPaymentSection =
+				document.getElementById("dashboard-payment");
 		}
 
 		// j'ai besoin de connaître des informations sur l'utilisateur actuel de
@@ -106,7 +107,6 @@ class HeaderContainer {
 
 	updateDashboarCartSectionInterface() {
 		if (this.hash == "#dashboard") {
-			
 			const cart = this.cartService.getAllCartItems();
 			this.dashboardCartSection.innerHTML = "";
 			if (typeof cart == "string") {

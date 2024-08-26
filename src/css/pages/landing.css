@@ -16,9 +16,7 @@
 	}
 }
 
-
 @media (width < 435px) {
-
 	.landing__main {
 		#landing-message-and-button {
 			width: 90%;

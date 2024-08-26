@@ -38,7 +38,8 @@ ul {
 	}
 }
 html {
-	font-family: "Poppins", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-family: "Poppins", Cambria, Cochin, Georgia, Times, "Times New Roman",
+		serif;
 }
 body {
 	min-height: 100vh;

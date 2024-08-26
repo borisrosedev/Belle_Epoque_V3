@@ -100,4 +100,19 @@
   
   }
   
+/*----------------------------RWD MOBILE-------------------------------------------- */
+
+@media (0 < width < 435px) {
+  .menu__section {
+   
+    & > section {
+      display: flex;
+      flex-wrap: wrap;
   
+      article {
+        width: 100%;
+        margin-right: unset;
+      }
+    }
+  }
+}

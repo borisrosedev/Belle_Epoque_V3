@@ -16,6 +16,7 @@
       padding: 10px;
       border-radius: 10px;
       display: flex;
+      width: 400px;
       flex-direction: column;
       opacity: 0;
       animation: show-up 1s ease-in-out forwards;
@@ -32,3 +33,13 @@
   
   }
   
+
+/*----------------------------RWD MOBILE-------------------------------------------- */
+
+@media (0 < width < 435px) {
+  .login__main {
+    & > section {
+      width: 90%;
+    }
+  }
+}

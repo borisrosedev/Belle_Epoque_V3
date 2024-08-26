@@ -71,7 +71,8 @@ function renderViewDependingOnTheHash(h) {
 			new CompletedContainer(window.onNavigate);
 			break;
 		case "#menu":
-			root.innerHTML = setPageLayout() + menuView() + appDialog() + appSpinner();
+			root.innerHTML =
+				setPageLayout() + menuView() + appDialog() + appSpinner();
 			new HeaderContainer(window.onNavigate);
 			new MenuContainer();
 			break;

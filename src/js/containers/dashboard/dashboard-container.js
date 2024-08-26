@@ -64,15 +64,16 @@ class DashboardContainer extends AuthRequiredContainer {
 	}
 
 	updateCartItemsCountSpanInterface() {
-		this.cartItemsCountSpan = document.getElementById("app-cart-items-count");
-		this.cartService.getCartItemsCount()
-			.then((count) => {
-				if(count > 0) {
-					this.cartItemsCountSpan.innerText = count;
-				} else {
-					this.cartItemsCountSpan.innerText = "";
-				}
-			});
+		this.cartItemsCountSpan = document.getElementById(
+			"app-cart-items-count"
+		);
+		this.cartService.getCartItemsCount().then((count) => {
+			if (count > 0) {
+				this.cartItemsCountSpan.innerText = count;
+			} else {
+				this.cartItemsCountSpan.innerText = "";
+			}
+		});
 	}
 
 	updateDashboardPaymentSection() {
@@ -137,7 +138,7 @@ class DashboardContainer extends AuthRequiredContainer {
 		}
 	}
 
-	onInit() {	
+	onInit() {
 		this.getUpdatedCart();
 		this.updateCartItemsCountSpanInterface();
 		this.dashboardCartSection.innerHTML = "";

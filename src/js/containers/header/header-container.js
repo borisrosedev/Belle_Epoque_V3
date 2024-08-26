@@ -20,7 +20,7 @@ class HeaderContainer {
 		// j'ai besoin de connaître des informations sur l'utilisateur actuel de
 		// l'application
 		this.user = new LocalStorageService().getSpecificItem("user");
-	
+
 		// j'aurai sans doute besoin de modifier le cart dans les méthodes de cette classe
 		// donc je fais en sorte de pouvoir utiliser le service de panier partout dans mon application
 		// en le transformant en attribut avec le mot clé this
@@ -33,7 +33,9 @@ class HeaderContainer {
 		this.notificationService = new NotificationService();
 
 		if (this.user) {
-			this.cartItemsCountSpan = document.getElementById("app-cart-items-count");
+			this.cartItemsCountSpan = document.getElementById(
+				"app-cart-items-count"
+			);
 			this.updateCartItemsCountSpanInterface();
 			// On aura besoin d'afficher le menu ( display: flex ) à un moment donné
 			this.appProfileMenu = document.getElementById("app-profile-menu");
@@ -73,16 +75,14 @@ class HeaderContainer {
 		}
 	}
 
-
 	updateCartItemsCountSpanInterface() {
-		this.cartService.getCartItemsCount()
-			.then((count) => {
-				if(count > 0) {
-					this.cartItemsCountSpan.innerText = count;
-				} else {
-					this.cartItemsCountSpan.innerText = "";
-				}
-			});
+		this.cartService.getCartItemsCount().then((count) => {
+			if (count > 0) {
+				this.cartItemsCountSpan.innerText = count;
+			} else {
+				this.cartItemsCountSpan.innerText = "";
+			}
+		});
 	}
 
 	onAppCartClickOnPaymentPage() {

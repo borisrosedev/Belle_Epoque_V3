@@ -14,8 +14,10 @@ class MenuContainer {
 		this.dataSource = new DataSource();
 		this.cartService = new CartService();
 		this.appSpinner = document.getElementById("app-spinner");
-		this.appSpinnerMessageSection = document.getElementById("app-spinner-message");
-		
+		this.appSpinnerMessageSection = document.getElementById(
+			"app-spinner-message"
+		);
+
 		this.notificationService.setNotification({
 			content: "Vous êtes sur la page du Menu"
 		});
@@ -99,17 +101,17 @@ class MenuContainer {
 	}
 
 	updateCartItemsCountSpanInterface() {
-		this.cartItemsCountSpan = document.getElementById("app-cart-items-count");
-		this.cartService.getCartItemsCount()
-			.then((count) => {
-				if(count > 0) {
-					this.cartItemsCountSpan.innerText = count;
-				} else {
-					this.cartItemsCountSpan.innerText = "";
-				}
-			});
+		this.cartItemsCountSpan = document.getElementById(
+			"app-cart-items-count"
+		);
+		this.cartService.getCartItemsCount().then((count) => {
+			if (count > 0) {
+				this.cartItemsCountSpan.innerText = count;
+			} else {
+				this.cartItemsCountSpan.innerText = "";
+			}
+		});
 	}
-
 
 	onAddToCartClick(data) {
 		if (this.user) {
@@ -179,10 +181,12 @@ class MenuContainer {
 
 	async onInit() {
 		this.appSpinner.style.display = "flex";
-		this.appSpinnerMessageSection.innerHTML += paragraph({ content: "Chargement du menu en cours ..."});
+		this.appSpinnerMessageSection.innerHTML += paragraph({
+			content: "Chargement du menu en cours ..."
+		});
 		this.menu = await this.getMenuFromJSONFile();
 		this.appSpinner.style.display = "none";
-		this.appSpinnerMessageSection.innerHTML = "";	
+		this.appSpinnerMessageSection.innerHTML = "";
 	}
 
 	async getMenuFromJSONFile() {

@@ -106,7 +106,7 @@ class HeaderContainer {
 
 	updateDashboarCartSectionInterface() {
 		if (this.hash == "#dashboard") {
-			this.updateDashboarPaymentSectionInterface();
+			
 			const cart = this.cartService.getAllCartItems();
 			this.dashboardCartSection.innerHTML = "";
 			if (typeof cart == "string") {
@@ -118,13 +118,13 @@ class HeaderContainer {
 					new Promise((resolve) => {
 						this.dashboardCartSection.innerHTML += cartItem(
 							el,
-							"dashboard"
+							"dashboard-cart"
 						);
 						resolve();
 					})
 						.then(() => {
 							const minusButton = document.getElementById(
-								"cart-minus-" + el.id
+								"dashboard-cart-minus-" + el.id
 							);
 							minusButton.addEventListener("click", () =>
 								this.onAppCartMinusClick(el)
@@ -132,7 +132,7 @@ class HeaderContainer {
 						})
 						.then(() => {
 							const plusButton = document.getElementById(
-								"cart-plus-" + el.id
+								"dashboard-cart-plus-" + el.id
 							);
 							plusButton.addEventListener("click", () =>
 								this.onAppCartPlusClick(el)
@@ -140,7 +140,7 @@ class HeaderContainer {
 						})
 						.then(() => {
 							const trashButton = document.getElementById(
-								"cart-trash-" + el.id
+								"dashboard-cart-trash-" + el.id
 							);
 							trashButton.addEventListener("click", () =>
 								this.onAppCartTrashClick(el)
@@ -244,6 +244,7 @@ class HeaderContainer {
 				})
 				.then(() => {
 					this.updateDashboarCartSectionInterface();
+					this.updateDashboarPaymentSectionInterface();
 				})
 				.then(() => {
 					this.notificationService.setNotification({
@@ -265,6 +266,7 @@ class HeaderContainer {
 			})
 			.then(() => {
 				this.updateDashboarCartSectionInterface();
+				this.updateDashboarPaymentSectionInterface();
 			})
 			.then(() => {
 				this.notificationService.setNotification({
@@ -284,6 +286,7 @@ class HeaderContainer {
 			})
 			.then(() => {
 				this.updateDashboarCartSectionInterface();
+				this.updateDashboarPaymentSectionInterface();
 			})
 			.then(() => {
 				this.notificationService.setNotification({

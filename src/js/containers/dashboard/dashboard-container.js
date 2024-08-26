@@ -63,6 +63,18 @@ class DashboardContainer extends AuthRequiredContainer {
 		});
 	}
 
+	updateCartItemsCountSpanInterface() {
+		this.cartItemsCountSpan = document.getElementById("app-cart-items-count");
+		this.cartService.getCartItemsCount()
+			.then((count) => {
+				if(count > 0) {
+					this.cartItemsCountSpan.innerText = count;
+				} else {
+					this.cartItemsCountSpan.innerText = "";
+				}
+			});
+	}
+
 	updateDashboardPaymentSection() {
 		this.dashboardPaymentSection.innerHTML = "";
 		this.dashboardPaymentSection.style.display = "none";
@@ -125,8 +137,9 @@ class DashboardContainer extends AuthRequiredContainer {
 		}
 	}
 
-	onInit() {
+	onInit() {	
 		this.getUpdatedCart();
+		this.updateCartItemsCountSpanInterface();
 		this.dashboardCartSection.innerHTML = "";
 		if (typeof this.cart !== "string") {
 			new Promise((resolve, reject) => {

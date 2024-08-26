@@ -1,6 +1,9 @@
 #app-cart {
 	position: fixed;
 	top: 0;
+	bottom: 0;
+	align-self: center;
+	margin: auto;
 	display: flex;
 	flex-direction: column;
 	width: 400px;

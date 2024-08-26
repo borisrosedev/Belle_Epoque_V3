@@ -95,8 +95,22 @@ class MenuContainer {
 		});
 	}
 
+	updateCartItemsCountSpanInterface() {
+		this.cartItemsCountSpan = document.getElementById("app-cart-items-count");
+		this.cartService.getCartItemsCount()
+			.then((count) => {
+				if(count > 0) {
+					this.cartItemsCountSpan.innerText = count;
+				} else {
+					this.cartItemsCountSpan.innerText = "";
+				}
+			});
+	}
+
+
 	onAddToCartClick(data) {
 		if (this.user) {
+			this.updateCartItemsCountSpanInterface();
 			this.cartService.addOneItem(data);
 			this.notificationService.setNotification({
 				content: `Ajout de ${data.name} au panier`

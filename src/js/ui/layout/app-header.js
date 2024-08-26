@@ -16,7 +16,10 @@ function appHeader() {
 				user
 					? `<section class="app-header__actions">
                         <button type="button" id="app-cart-button">
-                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>
+                              <i class="fa-solid fa-bag-shopping"></i>
+                            </span>
+                            <span id="app-cart-items-count"></span>
                         </button>
                     </section>`
 					: ""

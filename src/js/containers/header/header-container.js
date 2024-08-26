@@ -2,7 +2,9 @@ import AuthenticationService from "../../services/authentication/authentication.
 import CartService from "../../services/cart/cart.service.js";
 import LocalStorageService from "../../services/local-storage/local-storage.service.js";
 import NotificationService from "../../services/notification/notification.service.js";
+import button from "../../ui/components/button/button.js";
 import cartItem from "../../ui/components/cart-item/cart-item.js";
+import paragraph from "../../ui/components/paragraph/paragraph.js";
 
 class HeaderContainer {
 	constructor(onNavigate) {
@@ -11,6 +13,7 @@ class HeaderContainer {
 		if (this.hash == "#dashboard") {
 			this.dashboardCartSection =
 				document.getElementById("dashboard-cart");
+			this.dashboardPaymentSection = document.getElementById("dashboard-payment");	
 		}
 
 		// j'ai besoin de connaître des informations sur l'utilisateur actuel de
@@ -75,8 +78,35 @@ class HeaderContainer {
 		});
 	}
 
+	updateDashboarPaymentSectionInterface() {
+		this.dashboardPaymentSection.innerHTML = "";
+		this.dashboardPaymentSection.style.display = "none";
+		this.cartService.getCartTotalCost().then((cost) => {
+			if (cost) {
+				this.dashboardPaymentSection.style.display = "flex";
+				this.dashboardPaymentSection.innerHTML += paragraph({
+					id: "dashboard-payment-cost",
+					content: "Coût total de votre panier: " + cost + " $"
+				});
+				this.dashboardPaymentSection.innerHTML += button({
+					textContent: "Procéder au paiement",
+					classNames: "custom-button",
+					id: "dashboard-payment-button"
+				});
+
+				const dashboardPaymentButton = document.getElementById(
+					"dashboard-payment-button"
+				);
+				dashboardPaymentButton.addEventListener("click", () => {
+					this.onNavigate("#payment");
+				});
+			}
+		});
+	}
+
 	updateDashboarCartSectionInterface() {
 		if (this.hash == "#dashboard") {
+			this.updateDashboarPaymentSectionInterface();
 			const cart = this.cartService.getAllCartItems();
 			this.dashboardCartSection.innerHTML = "";
 			if (typeof cart == "string") {

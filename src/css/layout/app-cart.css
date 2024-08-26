@@ -3,7 +3,7 @@
 	top: 0;
 	display: flex;
 	flex-direction: column;
-	width: 300px;
+	width: 400px;
 	min-height: 100px;
 	border-radius: 10px;
 	overflow: hidden;
@@ -41,16 +41,44 @@
 	}
 
 	.cart-item {
-		height: 80px;
+		height: 90px;
+		box-shadow: 0 0 5px #000;
+		margin: 10px;
+		width: 95%;
 		figure {
-			width: 100px;
+			width: calc(1 / 3 * 100%);
 		}
 		figure + section {
 			width: calc(2 / 3 * 100%);
+			display: flex;
+			flex-direction: column;
+			height: 100%;
 
-			section {
-				width: 50%;
+
+			& > section {
+				height: 50%;
+				display: flex;
+				width: 100%;
 			}
+			& > section:first-of-type {
+				
+				align-items: center;
+				justify-content: center;
+				background-color: rgb(220, 220, 220);
+				width: 100%;
+			}
+
+			& > section:last-of-type {
+				align-items: center;
+				justify-content: space-evenly;
+			
+
+				button {
+					background-color: var(--primary-color);
+				}
+			}
+
+
 		}
 	}
 
@@ -68,6 +96,7 @@
 		flex-direction: column;
 		width: 100vw;
 		height: 100vh;
+
 		border-radius: 0;
 		overflow: hidden;
 		z-index: 30;
@@ -75,27 +104,60 @@
 		background-color: var(--primary-color);
 
 		header {
-			height: 5%;
+			height: 8vh;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 		}
 
 		& > section {
-			height: 95%;
+		
+			height: 92vh;
 			overflow-y: scroll;
+			background-color: transparent;
+			align-items: center;
+
 		}
 
 		.cart-item {
-			height: 200px;
-
+			min-height: 150px;
+			max-height: 180px;
+			box-shadow: 0 0 5px #000;
+			margin-block: 10px;
+			width: 98%;
 			figure {
 				width: calc(1 / 3 * 100%);
-				height: 150px;
+				height: 100%;
 			}
 			figure + section {
 				width: calc(2 / 3 * 100%);
-
-				section {
-					width: 50%;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+	
+				& > section {
+					height: 50%;
+					display: flex;
+					width: 100%;
 				}
+				& > section:first-of-type {
+					
+					align-items: center;
+					justify-content: center;
+					background-color: rgb(220, 220, 220);
+				}
+
+				& > section:last-of-type {
+					align-items: center;
+					justify-content: space-evenly;
+				
+
+					button {
+						background-color: var(--primary-color);
+					}
+				}
+
+
 			}
 		}
 	}

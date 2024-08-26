@@ -37,8 +37,11 @@ class NotificationService {
 	}
 
 	displayNotification() {
-		this.notificationAside.style.display = "none";
-		this.notificationAside.innerHTML = "";
+		if(this.notificationAside){
+			this.notificationAside.style.display = "none";
+			this.notificationAside.innerHTML = "";
+		}
+	
 	}
 }
 

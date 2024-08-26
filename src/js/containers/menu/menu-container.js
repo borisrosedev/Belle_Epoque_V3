@@ -4,6 +4,7 @@ import LocalStorageService from "../../services/local-storage/local-storage.serv
 import NotificationService from "../../services/notification/notification.service.js";
 import dialogMenuItem from "../../ui/components/dialog-menu-item/dialog-menu-item.js";
 import menuItem from "../../ui/components/menu-item/menu-item.js";
+import paragraph from "../../ui/components/paragraph/paragraph.js";
 
 class MenuContainer {
 	constructor() {
@@ -12,7 +13,9 @@ class MenuContainer {
 		this.notificationService = new NotificationService();
 		this.dataSource = new DataSource();
 		this.cartService = new CartService();
-
+		this.appSpinner = document.getElementById("app-spinner");
+		this.appSpinnerMessageSection = document.getElementById("app-spinner-message");
+		
 		this.notificationService.setNotification({
 			content: "Vous êtes sur la page du Menu"
 		});
@@ -175,7 +178,11 @@ class MenuContainer {
 	}
 
 	async onInit() {
+		this.appSpinner.style.display = "flex";
+		this.appSpinnerMessageSection.innerHTML += paragraph({ content: "Chargement du menu en cours ..."});
 		this.menu = await this.getMenuFromJSONFile();
+		this.appSpinner.style.display = "none";
+		this.appSpinnerMessageSection.innerHTML = "";	
 	}
 
 	async getMenuFromJSONFile() {

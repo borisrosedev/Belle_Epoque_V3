@@ -19,6 +19,7 @@ import completedView from "./src/js/ui/views/completed/completed-view.js";
 import CompletedContainer from "./src/js/containers/completed/completed-container.js";
 import profileView from "./src/js/ui/views/profile/profile-view.js";
 import ProfileContainer from "./src/js/containers/profile/profile-container.js";
+import appSpinner from "./src/js/ui/layout/app-spinner.js";
 
 const root = document.getElementById("root");
 
@@ -70,7 +71,7 @@ function renderViewDependingOnTheHash(h) {
 			new CompletedContainer(window.onNavigate);
 			break;
 		case "#menu":
-			root.innerHTML = setPageLayout() + menuView() + appDialog();
+			root.innerHTML = setPageLayout() + menuView() + appDialog() + appSpinner();
 			new HeaderContainer(window.onNavigate);
 			new MenuContainer();
 			break;

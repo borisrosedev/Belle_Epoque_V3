@@ -11,6 +11,7 @@
 @import url("./src/css/layout/app-dialog.css");
 @import url("./src/css/layout/app-main.css");
 @import url("./src/css/layout/app-profile-menu.css");
+@import url("./src/css/layout/app-spinner.css");
 
 @import url("./src/css/components/message.css");
 @import url("./src/css/components/custom-anchor.css");

@@ -4,12 +4,13 @@ import button from "../../ui/components/button/button.js";
 import cartItem from "../../ui/components/cart-item/cart-item.js";
 import message from "../../ui/components/message/message.js";
 import paragraph from "../../ui/components/paragraph/paragraph.js";
+import AuthRequiredContainer from "../../models/auth-required-container/auth-required-container.js";
 
-class DashboardContainer {
+class DashboardContainer extends AuthRequiredContainer {
 	constructor(onNavigate) {
-		this.onNavigate = onNavigate;
+		super(onNavigate);
+		if(!this.checkAuth()) return;
 		this.cartService = new CartService();
-		this.user = new LocalStorageService().getSpecificItem("user");
 		this.cart = this.cartService.getAllCartItems();
 		this.dashboardPaymentSection = document.getElementById("dashboard-payment");
 		this.dashboardWelcomeSection =

@@ -1,3 +1,4 @@
+import DataSource from "../../data-sources/data-source.js";
 import CartService from "../../services/cart/cart.service.js";
 import LocalStorageService from "../../services/local-storage/local-storage.service.js";
 import NotificationService from "../../services/notification/notification.service.js";
@@ -7,14 +8,9 @@ import menuItem from "../../ui/components/menu-item/menu-item.js";
 class MenuContainer {
 	constructor() {
 		this.user = new LocalStorageService().getSpecificItem("user");
-		console.log(this.user);
-		// j'appelle dans le constructeur de la classe une méthode onInit
-		// si vous voyez un .then() derrière c'est qu'elle retourne nécessairement
-		// une promise
-		// si il y a une promosse c'est qu'une ressource
-		//n'arrive pas instantanément dans cette histoire
-		this.notificationService = new NotificationService();
 
+		this.notificationService = new NotificationService();
+		this.dataSource = new DataSource();
 		this.cartService = new CartService();
 
 		this.notificationService.setNotification({
@@ -138,8 +134,8 @@ class MenuContainer {
 
 		this.appDialog.innerHTML += dialogMenuItem(el);
 
+		this.appDialog.style.width = window.innerWidth > 500 ? "500px" : `${window.innerWidth - 30}px`;
 		this.appDialog.style.height = "500px";
-		this.appDialog.style.width = "500px";
 
 		setTimeout(() => {
 			const dialogButtonAddItem = document.getElementById(
@@ -170,9 +166,7 @@ class MenuContainer {
 	}
 
 	async getMenuFromJSONFile() {
-		const result = await fetch("./data/menu/menu.json");
-		const menu = await result.json();
-		return menu;
+		return await this.dataSource.get("./data/menu/menu.json");
 	}
 }
 

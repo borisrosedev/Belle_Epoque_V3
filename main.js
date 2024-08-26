@@ -2,7 +2,6 @@ import DashboardContainer from "./src/js/containers/dashboard/dashboard-containe
 import HeaderContainer from "./src/js/containers/header/header-container.js";
 import LandingContainer from "./src/js/containers/landing/landing-container.js";
 import LogContainer from "./src/js/containers/log/log-container.js";
-import LogoutContainer from "./src/js/containers/logout/logout-container.js";
 import MenuContainer from "./src/js/containers/menu/menu-container.js";
 import appCart from "./src/js/ui/layout/app-cart.js";
 import appDialog from "./src/js/ui/layout/app-dialog.js";
@@ -13,7 +12,6 @@ import paymentView from "./src/js/ui/views/payment/payment-view.js";
 import dashboardView from "./src/js/ui/views/dashboard/dashboard-view.js";
 import landingView from "./src/js/ui/views/landing/landing-view.js";
 import logView from "./src/js/ui/views/log/log-view.js";
-import logoutView from "./src/js/ui/views/logout/logout-view.js";
 import menuView from "./src/js/ui/views/menu/menu-view.js";
 import notFoundView from "./src/js/ui/views/not-found/not-found-view.js";
 import PaymentContainer from "./src/js/containers/payment/payment-container.js";
@@ -62,10 +60,6 @@ function renderViewDependingOnTheHash(h) {
 			new HeaderContainer(window.onNavigate);
 			new DashboardContainer(window.onNavigate);
 			break;
-		case "#logout":
-			root.innerHTML = logoutView();
-			new LogoutContainer();
-			break;
 		case "#payment":
 			root.innerHTML = setPageLayout() + paymentView();
 			new HeaderContainer(window.onNavigate);
@@ -73,7 +67,7 @@ function renderViewDependingOnTheHash(h) {
 			break;
 		case "#completed":
 			root.innerHTML = setPageLayout() + completedView();
-			new CompletedContainer();
+			new CompletedContainer(window.onNavigate);
 			break;
 		case "#menu":
 			root.innerHTML = setPageLayout() + menuView() + appDialog();

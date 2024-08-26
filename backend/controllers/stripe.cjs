@@ -15,7 +15,7 @@ const stripeController = {
 
   createPaymentIntent: async(req, res) => {
    
-      let orderAmount = 2000;
+      let orderAmount = req.body.orderAmount;
       let paymentIntent;
   
       try {

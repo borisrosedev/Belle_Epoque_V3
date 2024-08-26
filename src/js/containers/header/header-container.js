@@ -53,10 +53,15 @@ class HeaderContainer {
 			//le bouton panier représenté par le sac 
 			// je lui ajoute un écouteur de l'événement click
 			this.appCartButton = document.getElementById("app-cart-button");
+			
+			
 			this.appCartButton.addEventListener(
 				"click",
-				this.onAppCartClick.bind(this)
+				(window.location.hash !== "#payment" ? this.onAppCartClick.bind(this): this.onAppCartClickOnPaymentPage.bind(this))
 			);
+
+
+
 			this.appCart = document.getElementById("app-cart");
 			const appCartCloseButton = document.getElementById(
 				"app-cart-close-button"
@@ -66,6 +71,13 @@ class HeaderContainer {
 				this.onAppCartCloseClick.bind(this)
 			);
 		}
+	}
+
+	onAppCartClickOnPaymentPage() {
+		this.notificationService.setNotification({
+			type: 'info',
+			content: 'Vous ne pouvez plus accéder au panier durant la phase de paiement'
+		});
 	}
 
 	updateDashboarCartSectionInterface() {

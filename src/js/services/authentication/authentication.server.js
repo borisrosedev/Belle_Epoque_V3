@@ -19,6 +19,7 @@ class AuthenticationService {
 			return "Identifiant/Mot de passe incorrect";
 		}
 
+		delete user.password;
 		this.localStorageService.setSpecificItem("user", user);
 	}
 

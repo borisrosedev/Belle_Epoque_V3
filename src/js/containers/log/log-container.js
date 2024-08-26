@@ -118,7 +118,6 @@ class LogContainer {
 	}
 
 	async onSubmit(submitFormEvent) {
-		console.log("into onSubmit");
 		submitFormEvent.preventDefault();
 
 		const doAllRequiredFieldsHaveValue =

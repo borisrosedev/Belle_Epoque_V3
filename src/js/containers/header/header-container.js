@@ -203,7 +203,6 @@ class HeaderContainer {
 
 	onAppCartMinusClick(data) {
 		if (data.quantity == 1) {
-			console.log("on app cart minus == 1");
 			this.onAppCartTrashClick(data);
 		}
 

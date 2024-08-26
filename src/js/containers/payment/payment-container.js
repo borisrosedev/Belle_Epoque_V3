@@ -1,8 +1,7 @@
-import DataSource from "../../data-sources/data-source.js";
-import LocalStorageService from "../../services/local-storage/local-storage.service.js";
 import paragraph from "../../ui/components/paragraph/paragraph.js";
 import AuthRequiredContainer from "../../models/auth-required-container/auth-required-container.js";
 import CartService from "../../services/cart/cart.service.js";
+import StripeService from "../../services/stripe/stripe.service.js";
 
 class PaymentContainer  extends AuthRequiredContainer {
     constructor(onNavigate){
@@ -14,16 +13,14 @@ class PaymentContainer  extends AuthRequiredContainer {
         this.paymentElementSection = document.getElementById('payment-element');
         this.paymentErrorsSection = document.getElementById('payment-errors');
         this.paymentForm.addEventListener("submit",this.onSubmit.bind(this));
-        this.dataSource = new DataSource();
-        
-        this.dataSource.get('http://localhost:3000/api/stripe/config')
-            .then((res) => {
-                this.publishableKey = res.publishableKey;
+        this.stripeService = new StripeService();
+        this.stripeService.getPublishableKey()
+            .then((pk) => {
+                this.publishableKey = pk; 
                 this.stripe = Stripe(this.publishableKey);
-            })
-            .then(async() => {
+            }).then(async() => {
                 const orderAmount = await this.cartService.getCartTotalCost();
-                const { error, clientSecret } = await this.dataSource.post( { orderAmount:  orderAmount * 100 }, 'http://localhost:3000/api/stripe/create-payment-intent');
+                const { error, clientSecret } = await this.stripeService.getClientSecretOrError({ orderAmount: orderAmount * 100 });
                 if(error){
                     this.paymentErrorsSection.innerHTML = paragraph({ content: error.message });
                     return;
@@ -31,6 +28,7 @@ class PaymentContainer  extends AuthRequiredContainer {
                 this.clientSecret = clientSecret;
                 this.initializeStripeElements();
             });
+
     }
 
     initializeStripeElements () {

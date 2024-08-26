@@ -1,18 +1,17 @@
-import DataSource from "../../data-sources/data-source.js";
 import AuthRequiredContainer from "../../models/auth-required-container/auth-required-container.js";
-import LocalStorageService from "../../services/local-storage/local-storage.service.js";
 import NotificationService from "../../services/notification/notification.service.js";
+import StripeService from "../../services/stripe/stripe.service.js";
 import paragraph from "../../ui/components/paragraph/paragraph.js";
 
 class CompletedContainer extends AuthRequiredContainer {
     constructor(onNavigate){
         super(onNavigate);
         if(!this.checkAuth()) return;
-        this.dataSource = new DataSource();        
+        this.stripeService = new StripeService();     
         this.notificationService = new NotificationService();
         this.paymentResultSection = document.getElementById("payment-result");
-        this.dataSource.get('http://localhost:3000/api/stripe/config')
-            .then(({ publishableKey }) => {
+        this.stripeService.getPublishableKey()
+            .then((publishableKey) => {
                 if(!publishableKey){
                     this.notificationService.setNotification({ content: "Echec de la connexion entre notre serveur et Stripe", type: "failure" });
                     return;
@@ -28,11 +27,7 @@ class CompletedContainer extends AuthRequiredContainer {
                         this.notificationService.setNotification({ content: error.message, type: "failure" });
                         return; 
                     }
-
-
                     this.paymentResultSection.innerHTML = this.createSuccessInterface();
-               
-
                     this.notificationService.setNotification({ content: `Paiement réussi; ${paymentIntent.id}`, type: "success"});
                     this.localStorageService.removeSpecificItem('payment_intent_client_secret');
                     setTimeout(() => {

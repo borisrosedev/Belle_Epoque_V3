@@ -18,8 +18,6 @@ class MenuContainer {
 		});
 
 		this.onInit().then(() => {
-			console.log("this.menu", this.menu);
-
 			const startersSection = document.getElementById("starters");
 
 			this.appDialog = document.getElementById("app-dialog");

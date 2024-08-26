@@ -54,12 +54,10 @@ class DashboardContainer extends AuthRequiredContainer {
 	}
 
 	onCartTrashClick(data) {
-		console.log("into", data);
 		new Promise((resolve) => {
 			this.cartService.removeOneItem(data.name);
 			resolve();
 		}).then(() => {
-			console.log("ici");
 			this.onInit();
 		});
 	}
@@ -73,7 +71,6 @@ class DashboardContainer extends AuthRequiredContainer {
 		this.dashboardPaymentSection.style.display = "none";
 		this.cartService.getCartTotalCost()
 			.then((cost) => {
-				console.log(cost);
 				if(cost){
 					this.dashboardPaymentSection.style.display = "flex";
 					this.dashboardPaymentSection.innerHTML += paragraph({ id: "dashboard-payment-cost", content: 'Coût total de votre panier: ' + cost + ' $' });

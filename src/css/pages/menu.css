@@ -95,7 +95,7 @@
 @media (width < 435px) {
 	.menu__main {
 		article {
-			width: 100%;
+			width: 96%;
 			margin-right: unset;
 		}
 	}

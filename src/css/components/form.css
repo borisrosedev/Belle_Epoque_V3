@@ -2,7 +2,7 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	width: 400px;
+	width: 100%;
 }
 .form__errors {
 	min-height: 30px;
@@ -89,6 +89,17 @@
 					color: var(--error-color);
 				}
 			}
+		}
+	}
+}
+
+
+
+@media (width < 435px) {
+	.form__label-and-input {
+		input {
+			height: 40px;
+			font-size: 16px;
 		}
 	}
 }

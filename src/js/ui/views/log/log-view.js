@@ -74,7 +74,7 @@ function logView(isLoggingIn = true) {
 	return `
     
         
-    <main class="app__main login__main">
+    <main class="app__main log__main">
 
         <section>
             <header>

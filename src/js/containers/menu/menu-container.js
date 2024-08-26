@@ -134,7 +134,7 @@ class MenuContainer {
 
 		this.appDialog.style.width =
 			window.innerWidth > 500 ? "500px" : `${window.innerWidth - 30}px`;
-		this.appDialog.style.height = "500px";
+		this.appDialog.style.height = "600px";
 
 		setTimeout(() => {
 			const dialogButtonAddItem = document.getElementById(

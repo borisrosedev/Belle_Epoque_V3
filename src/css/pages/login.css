@@ -1,6 +1,6 @@
-/*-------------------------------LOGIN PAGE------------------------------*/
+/*-------------------------------LOG PAGE------------------------------*/
 
-.login__main {
+.log__main {
 	background-color: rgba(0, 0, 0, 0.5);
 	background-blend-mode: color;
 	align-items: center;
@@ -15,6 +15,7 @@
 		display: flex;
 		flex-direction: column;
 		opacity: 0;
+		width: 400px;
 		animation: show-up 1s ease-in-out forwards;
 		& > header {
 			h1 {
@@ -34,6 +35,17 @@
 			a {
 				color: var(--secondary-color);
 			}
+		}
+	}
+}
+
+
+
+
+@media (width < 435px) {
+	.log__main {	
+		& > section {
+			width: 90%;
 		}
 	}
 }
